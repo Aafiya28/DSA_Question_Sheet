@@ -1,5 +1,6 @@
 public class SortedArr {
 
+    //Sorted An Array
     static void sorted(int[] arr){
 
         int n = arr.length;

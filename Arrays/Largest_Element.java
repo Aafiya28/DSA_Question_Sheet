@@ -2,6 +2,7 @@ import java.util.*;
 
 class Largest_Element {
 
+    //Find Largest Element of an Array
     static int largest(int[] arr){
 
         int n = arr.length;

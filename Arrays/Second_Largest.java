@@ -1,5 +1,6 @@
 public class Second_Largest {
 
+    //Find Second Largest Element in an Array
     static int secondLargest(int[] arr) {
 
         int n = arr.length;
