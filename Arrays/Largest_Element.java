@@ -1,7 +1,7 @@
 import java.util.*;
 
 class Largest_Element {
-    
+
     static int largest(int[] arr){
 
         int n = arr.length;
