@@ -1,6 +1,6 @@
 public class MoveZeros {
 
-    static void moveZero(int[] arr, int n){
+    static void moveZero(int[] arr){
 
         for (int i : arr){
             System.out.print(arr[i] + " ");
