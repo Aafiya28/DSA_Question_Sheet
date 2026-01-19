@@ -2,9 +2,13 @@ public class MoveZeros {
 
     static void moveZero(int[] arr){
 
-        for (int i : arr){
+        int i;
+
+        for (i=0; i<arr.length; i++){
             System.out.print(arr[i] + " ");
         }
+
+
 
     }
 
