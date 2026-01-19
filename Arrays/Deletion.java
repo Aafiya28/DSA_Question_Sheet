@@ -1,6 +1,5 @@
 public class Deletion {
 
-    //Deletion Function
     static int deletion(int[] arr, int n, int x){
 
         int i;
