@@ -2,11 +2,18 @@ public class MoveZeros {
 
     static void moveZero(int[] arr){
 
-        int i;
+        int n = arr.length;
+        int count = 0;
 
-        for (i=0; i<arr.length; i++){
-            System.out.print(arr[i] + " ");
+        for(int i=0; i<n; i++){
+            if(arr[i] != 0){
+                int temp = arr[i];
+                arr[i] = arr[count];
+                arr[count] = temp;
+                count++;
+            }
         }
+
 
 
 
@@ -14,8 +21,10 @@ public class MoveZeros {
 
     public static void main(String[] args){
 
-        int[] arr = {34, 67, 36, 98, 56, 72};
+        int[] arr = {34, 0, 64, 43, 0, 0, 25, 78};
         int n =arr.length;
+
+        moveZero(arr);
 
         for(int i=0; i<n; i++){
             System.out.print(arr[i] + " ");
