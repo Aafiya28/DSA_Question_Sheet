@@ -13,10 +13,6 @@ public class MoveZeros {
                 count++;
             }
         }
-
-
-
-
     }
 
     public static void main(String[] args){

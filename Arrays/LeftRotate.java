@@ -66,9 +66,9 @@ public class LeftRotate {
         System.out.print("Enter number of place of element rotation : ");
         int k = sc.nextInt();
 
-        leftRotateByKPlace(arr, k);
+        leftRotateByKPlace(nums, k);
 
-//        System.out.print("After Rotation New Array List is: ");
+        System.out.print("After Rotation New Array List is: ");
 
         //After K Place Rotation
         for(int num : nums){
