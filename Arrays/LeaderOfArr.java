@@ -4,17 +4,13 @@ public class LeaderOfArr {
 
         int n = arr.length;
 
-        int curr_ldr = arr[n - 1];
+        int maxRight = arr[n-1];
+        System.out.print(maxRight + " ");
 
-        System.out.print(curr_ldr+" ");
-
-        for(int i = n - 2; i >= 0; i--)
-        {
-            if(curr_ldr < arr[i])
-            {
-                curr_ldr = arr[i];
-
-                System.out.print(curr_ldr+" ");
+        for(int i = n - 2; i >= 0; i--) {
+            if(arr[i] > maxRight){
+                maxRight = arr[i];
+                System.out.print(maxRight + " ");
             }
         }
     }
