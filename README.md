@@ -20,7 +20,7 @@ The goal of this repo is to maintain consistency in DSA practice and track progr
 - Arrays
 - Strings
 - Recursion
-- Searching & Sorting
+- Arrays.MaximumSum.Searching & Sorting
 - Linked List
 - Stack & Queue
 - Hashing

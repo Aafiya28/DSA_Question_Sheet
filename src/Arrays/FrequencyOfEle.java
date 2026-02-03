@@ -26,5 +26,3 @@ public class FrequencyOfEle {
         freqOfEle(arr);
     }
 }
-
-
