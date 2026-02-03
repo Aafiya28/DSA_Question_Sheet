@@ -1,3 +1,5 @@
+package Arrays;
+
 public class LeaderOfArr {
 
     static void leaderOfArr(int[] arr){

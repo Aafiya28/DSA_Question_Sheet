@@ -1,3 +1,5 @@
+package Arrays;
+
 public class Insertion {
 
     static int insertEle(int[] arr, int n, int x, int cap, int pos){

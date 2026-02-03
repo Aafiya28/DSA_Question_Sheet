@@ -1,3 +1,5 @@
+package Arrays;
+
 public class MaxDifference {
 
     static int maxDiff(int[] arr){

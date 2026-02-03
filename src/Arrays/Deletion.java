@@ -1,3 +1,5 @@
+package Arrays;
+
 public class Deletion {
 
     static int deletion(int[] arr, int n, int x){
