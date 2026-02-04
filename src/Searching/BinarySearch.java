@@ -8,12 +8,20 @@ public class BinarySearch {
 
         int n = arr.length;
 
-        for(int i=0; i<n; i++){
-            if(arr[i] == x){
-                return i;
+        int low = 0;
+        int high = n-1;
+
+        while(low < high){
+            int mid = (low+high)/2;
+
+            if(arr[mid] == x){
+                return mid;
+            } else if(arr[mid] > x){
+                high = mid-1;
+            }else {
+                low = mid+1;
             }
         }
-
         return -1;
     }
 
@@ -31,7 +39,7 @@ public class BinarySearch {
             arr[i] = sc.nextInt();
         }
 
-        System.out.println("Enter target element to search: ");
+        System.out.print("Enter target element to search: ");
         int x = sc.nextInt();
 
         int result = bSearch(arr, x);
