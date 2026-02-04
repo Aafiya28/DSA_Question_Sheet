@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class LastOccurrence {
 
-    static int lastOccEle(int[] arr, int x, int low, int high){
+    static int lastOccEleR(int[] arr, int x, int low, int high){
 
         int n = arr.length;
 
@@ -15,16 +15,42 @@ public class LastOccurrence {
         int mid = (low+high)/2;
 
         if(arr[mid] > x){
-            return lastOccEle(arr, x, low , mid-1);
+            return lastOccEleR(arr, x, low , mid-1);
         } else if (arr[mid] < x) {
-            return lastOccEle(arr, x, mid+1, high);
+            return lastOccEleR(arr, x, mid+1, high);
         }else {
             if(mid == n-1 || arr[mid] != arr[mid+1]){
                 return mid;
             }else {
-                return lastOccEle(arr, x, mid+1, high);
+                return lastOccEleR(arr, x, mid+1, high);
             }
         }
+    }
+
+    static int lastOccEleL(int[] arr, int x){
+
+        int n = arr.length;
+
+        int low = 0;
+        int high = n-1;
+
+        while(low <= high){
+            int mid = (low + high)/2;
+
+            if(arr[mid] > x){
+                high = mid-1;
+            } else if (arr[mid] < x) {
+                low = mid+1;
+            }else {
+                if(mid == n-1 || arr[mid] != arr[mid+1]){
+                    return mid;
+                }else {
+                    low = mid+1;
+                }
+            }
+        }
+
+        return -1;
     }
 
     public static void main(String[] args){
@@ -43,8 +69,15 @@ public class LastOccurrence {
 
         System.out.print("Enter element to search its last occurrence: ");
         int x = sc.nextInt();
-        int result = lastOccEle(arr, x, 0, n);
 
-        System.out.println(x + " last occurrence in the array is: " + result);
+
+        int resultR = lastOccEleR(arr, x, 0, n);
+        int resultL = lastOccEleL(arr, x);
+
+        //By Recursive Method
+        System.out.println(x + " last occurrence in the array is: " + resultR);
+
+        //By Iterative Method
+        System.out.println(x + " last occurrence in the array is: " + resultL);
     }
 }
