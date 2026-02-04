@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class FirstOccurrence {
 
-    static int firstOccEle(int[] arr, int x, int low , int high){
+    //Recursive Solution
+    static int firstOccEleR(int[] arr, int x, int low , int high){
 
         int n = arr.length;
 
@@ -15,16 +16,46 @@ public class FirstOccurrence {
         int mid = (low+high)/2;
 
         if(arr[mid] > x){
-                return firstOccEle(arr, x, low, mid-1);
+                return firstOccEleR(arr, x, low, mid-1);
         } else if(arr[mid] < x){
-            return firstOccEle(arr, x ,mid+1, high);
+            return firstOccEleR(arr, x ,mid+1, high);
         } else {
             if(mid == 0 || arr[mid] != arr[mid-1]){
                 return mid;
             }else {
-                return firstOccEle(arr, x, low, mid-1);
+                return firstOccEleR(arr, x, low, mid-1);
             }
         }
+    }
+
+    static int firstOccEleL(int[] arr, int x){
+
+        int n = arr.length;
+
+        int low = 0;
+        int high = n-1;
+
+        if(low > high){
+            return -1;
+        }
+
+        while(low <= high){
+
+            int mid = (low+high)/2;
+
+            if(arr[mid] > x){
+                high = mid-1;
+            } else if (arr[mid] < x) {
+                low = mid+1;
+            }else {
+                if(mid == 0 || arr[mid] != arr[mid-1]){
+                    return mid;
+                }else {
+                    high = mid-1;
+                }
+            }
+        }
+        return -1;
     }
 
     public static void main(String[] args){
@@ -44,8 +75,13 @@ public class FirstOccurrence {
         System.out.print("Enter element to search its first occurrence: ");
         int x = sc.nextInt();
 
-        int result = firstOccEle(arr, x, 0, n);
+        int resultR = firstOccEleR(arr, x, 0, n);
+        int resultL= firstOccEleL(arr, x);
 
-        System.out.println(x + " first occurrence index in array is: " + result);
+        //By Recursive Method
+        System.out.println(x + " first occurrence index in array is: " + resultR);
+
+        //By Iterative Method
+        System.out.println(x + " first occurrence index in array is: " + resultL);
     }
 }
