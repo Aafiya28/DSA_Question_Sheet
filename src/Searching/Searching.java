@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Searching {
 
-    //searching element from infinite length of array
-    static int searchEle(int[] arr, int x, int low, int high){
+    //Binary Search
+    static int bSearch(int[] arr, int x, int low, int high){
 
         int n = arr.length;
 
@@ -17,14 +17,25 @@ public class Searching {
                 return mid;
             } else if (arr[mid] > x) {
                 high = mid-1;
-                searchEle(arr, x, low, high);
+                bSearch(arr, x, low, high);
             }else {
                 low = mid+1;
-                searchEle(arr, x, low, high);
+                bSearch(arr, x, low, high);
             }
         }
         return -1;
     }
+
+    //Search in Infinite sized array
+    static int seacrhIS(int[] arr, int x){
+
+
+
+        return -1;
+    }
+
+    //search in Sorted Rotated Array
+
 
     public static void main(String[] args){
 
@@ -43,8 +54,8 @@ public class Searching {
         System.out.print("Enter element to search: ");
         int x = sc.nextInt();
 
-        int result = searchEle(arr, x, 0, n);
+//        int result = searchISA(arr, x, 0, n);
 
-        System.out.println(x + " is appear at index: " + result);
+//        System.out.println(x + " is appear at index: " + result);
     }
 }
