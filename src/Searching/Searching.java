@@ -17,10 +17,10 @@ public class Searching {
                 return mid;
             } else if (arr[mid] > x) {
                 high = mid-1;
-                bSearch(arr, x, low, high);
+//                bSearch(arr, x, low, high);
             }else {
                 low = mid+1;
-                bSearch(arr, x, low, high);
+//                bSearch(arr, x, low, high);
             }
         }
         return -1;
@@ -29,13 +29,50 @@ public class Searching {
     //Search in Infinite sized array
     static int seacrhIS(int[] arr, int x){
 
+        if(arr[0] == x) return 0;
 
+        int i = 1;
+        while(arr[i] < x) {
+            i = i * 2;
+        }
 
-        return -1;
+        if(arr[i] == x) return i;
+
+        return bSearch(arr, x, i /2+1, i-1);
     }
 
     //search in Sorted Rotated Array
+    static int rotatedSort(int[] arr, int x){
 
+        int n = arr.length;
+
+        int low = 0;
+        int high = n-1;
+
+        while(low <= high){
+
+            int mid = (low+high)/2;
+
+            if(x == arr[mid]){
+                return mid;
+            }
+
+            if( arr[low] <= arr[mid]){
+                if(x >= arr[low] && x < arr[mid]){
+                    high = mid-1;
+                }else {
+                    low = mid+1;
+                }
+            }else {
+                if(x > arr[mid] && x <=arr[high]){
+                    low = mid+1;
+                }else {
+                    high = mid-1;
+                }
+            }
+        }
+        return -1;
+    }
 
     public static void main(String[] args){
 
@@ -54,8 +91,13 @@ public class Searching {
         System.out.print("Enter element to search: ");
         int x = sc.nextInt();
 
-//        int result = searchISA(arr, x, 0, n);
+        //Searching Element in Infinite Sized Array
+        int resultI = seacrhIS(arr, x);
 
-//        System.out.println(x + " is appear at index: " + result);
+        //Searching Element in Sorted Rotated Array
+        int resultR = rotatedSort(arr, x);
+
+        System.out.println(x + " is present at index: " + resultI);
+        System.out.println(x + " is appear at index: " + resultR);
     }
 }
