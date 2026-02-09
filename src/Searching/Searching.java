@@ -10,36 +10,37 @@ public class Searching {
         int n = arr.length;
 
         while(low <= high){
-
             int mid = (low+high)/2;
 
             if(arr[mid] == x){
                 return mid;
             } else if (arr[mid] > x) {
                 high = mid-1;
-//                bSearch(arr, x, low, high);
             }else {
                 low = mid+1;
-//                bSearch(arr, x, low, high);
             }
         }
         return -1;
     }
 
     //Search in Infinite sized array
-    static int seacrhIS(int[] arr, int x){
+    static int searchIS(int[] arr, int x) {
 
-        if(arr[0] == x) return 0;
+        if (arr.length == 0) return -1;
+        if (arr[0] == x) return 0;
 
         int i = 1;
-        while(arr[i] < x) {
+
+        while (i < arr.length && arr[i] < x) {
             i = i * 2;
         }
 
-        if(arr[i] == x) return i;
+        int low = i / 2;
+        int high = Math.min(i, arr.length - 1);
 
-        return bSearch(arr, x, i /2+1, i-1);
+        return bSearch(arr, x, low, high);
     }
+
 
     //search in Sorted Rotated Array
     static int rotatedSort(int[] arr, int x){
@@ -91,13 +92,12 @@ public class Searching {
         System.out.print("Enter element to search: ");
         int x = sc.nextInt();
 
-        //Searching Element in Infinite Sized Array
-        int resultI = seacrhIS(arr, x);
-
-        //Searching Element in Sorted Rotated Array
+        int resultI = searchIS(arr, x);
         int resultR = rotatedSort(arr, x);
 
-        System.out.println(x + " is present at index: " + resultI);
-        System.out.println(x + " is appear at index: " + resultR);
+        System.out.println("Infinite array search index: " + resultI);
+        System.out.println("Rotated array search index: " + resultR);
+
+        sc.close();
     }
 }
