@@ -55,19 +55,17 @@ public class PeakElement {
 //
 //        int[] arr = new int[n];
 //
-//        System.out.println("Enter elements in array: ");
+//        System.out.print("Enter elements in array: ");
 //        for(int i=0; i<n; i++){
 //            arr[i] = sc.nextInt();
 //        }
 
 //        ArrayList<Integer> result = peakEle(arr);
+//        System.out.println("Peak Element of Array: " + result);
 
         int arr[] = {5, 20, 40, 30, 20, 50, 60}, n = 7;
-
-
         int peakEle = getPeak(arr);
 
-//        System.out.println("Peak Element of Array: " + result);
         System.out.println("Peak Element of Array: " + peakEle);
     }
 }
