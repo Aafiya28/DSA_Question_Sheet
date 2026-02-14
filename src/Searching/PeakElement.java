@@ -5,26 +5,6 @@ import java.util.Scanner;
 
 public class PeakElement {
 
-    static ArrayList<Integer> peakEle(int[] arr){
-
-        int n = arr.length;
-
-        ArrayList<Integer> peakValue = new ArrayList<>();
-
-        for(int i=0; i<=n; i++){
-
-            if(arr[i] >= arr[i+1]){
-                peakValue.add(arr[i]);
-            }
-
-            if(arr[i+1] > arr[i] && arr[i+1] > arr[i+2]){
-                peakValue.add(arr[i+1]);
-            }
-        }
-
-        return peakValue;
-    }
-
     static int getPeak(int[] arr){
 
         int n = arr.length;
@@ -37,7 +17,7 @@ public class PeakElement {
 
             if((mid == 0 || arr[mid - 1] <= arr[mid]) &&
                     (mid == n - 1 || arr[mid + 1] <= arr[mid]))
-                return mid;
+                return arr[mid];
             if(mid > 0 && arr[mid - 1] >= arr[mid])
                 high = mid -1;
             else
@@ -50,20 +30,16 @@ public class PeakElement {
 
         Scanner sc = new Scanner(System.in);
 
-//        System.out.print("Enter no. of element in array: ");
-//        int n = sc.nextInt();
-//
-//        int[] arr = new int[n];
-//
-//        System.out.print("Enter elements in array: ");
-//        for(int i=0; i<n; i++){
-//            arr[i] = sc.nextInt();
-//        }
+        System.out.print("Enter no. of element in array: ");
+        int n = sc.nextInt();
 
-//        ArrayList<Integer> result = peakEle(arr);
-//        System.out.println("Peak Element of Array: " + result);
+        int[] arr = new int[n];
 
-        int arr[] = {5, 20, 40, 30, 20, 50, 60}, n = 7;
+        System.out.print("Enter elements in array: ");
+        for(int i=0; i<n; i++){
+            arr[i] = sc.nextInt();
+        }
+
         int peakEle = getPeak(arr);
 
         System.out.println("Peak Element of Array: " + peakEle);
