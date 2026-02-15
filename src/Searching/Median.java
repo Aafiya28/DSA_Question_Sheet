@@ -1,37 +1,60 @@
 package Searching;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Median {
 
     //finding median of two array
 
-    static int medianOfArr(int[] arr,  int[] arr2){
+    static int medianOfArr(int[] arr1,  int[] arr2){
 
-        int n = arr.length;
+        int n = arr1.length;
         int m = arr2.length;
 
         ArrayList<Integer> finalArr = new ArrayList<>();
 
-        for(int i=0; i<n; i++){
-            for(int j=0; j<m; j++){
-                if(arr[i] <= arr[j]){
-                    finalArr.add(arr[i]);
-                }else {
-                    finalArr.add(arr2[j]);
-                }
+        int i = 0, j = 0;
+
+        // Merge both arrays
+        while(i < n && j < m){
+            if(arr1[i] < arr2[j]){
+                finalArr.add(arr1[i++]);
+            } else {
+                finalArr.add(arr2[j++]);
             }
         }
 
-        System.out.println(finalArr);
+        // Add remaining elements
+        while(i < n){
+            finalArr.add(arr1[i++]);
+        }
 
-        int count = n+m;
+        while(j < m){
+            finalArr.add(arr2[j++]);
+        }
+
+
+        int total = n + m;
         int med = 0;
 
-        if(count%2 == 0){
-            med = ((count/2)+(count/2 +1))/2;
-        }else
-            med = count/2;
-        return -1;
+        // Calculate median
+        if(total % 2 == 0){
+            return (finalArr.get(total/2) + finalArr.get(total/2 - 1)) / 2;
+        } else {
+            return finalArr.get(total/2);
+        }
+    }
+
+    public static void main(String[] args){
+
+        Scanner sc = new Scanner(System.in);
+
+        int[] arr1 = {1,3,5,7};
+        int[] arr2 = {2,4,6,8};
+
+        int medResult = medianOfArr(arr1, arr2);
+
+        System.out.println("Median of this arrays: " + medResult);
     }
 }
