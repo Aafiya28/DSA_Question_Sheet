@@ -34,7 +34,6 @@ public class Median {
             finalArr.add(arr2[j++]);
         }
 
-
         int total = n + m;
         int med = 0;
 
