@@ -4,6 +4,11 @@ import java.util.Scanner;
 
 public class IsPair {
 
+    static int pair(int[] arr){
+
+        return -1;
+    }
+
     static void main(String[] args){
 
         Scanner sc = new Scanner(System.in);
