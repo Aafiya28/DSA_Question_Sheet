@@ -6,6 +6,11 @@ public class IsPair {
 
     static int pair(int[] arr){
 
+        int n = arr.length;
+
+        for(int i=0; i<n; i++){
+
+        }
         return -1;
     }
 
