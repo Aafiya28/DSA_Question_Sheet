@@ -17,7 +17,7 @@ public class MajorityEle {
             }
 
             if(count > n/2){
-                return i;
+                return arr[i];
             }
         }
 
