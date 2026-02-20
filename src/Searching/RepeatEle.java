@@ -18,6 +18,8 @@ public class RepeatEle {
         }
 
 
+        int[] arr2 = {0, 2, 1, 3, 2, 2};
+
         System.out.println("Result: ");
     }
 }
