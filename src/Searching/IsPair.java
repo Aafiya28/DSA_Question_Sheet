@@ -4,30 +4,49 @@ import java.util.Scanner;
 
 public class IsPair {
 
-    static int pair(int[] arr){
+    static boolean pair(int[] arr, int x){
 
         int n = arr.length;
 
-        for(int i=0; i<n; i++){
+        int left = 0;
+        int right = n-1;
 
+        while(left <right){
+
+            int sum = arr[left] + arr[right];
+            if(sum == x){
+                return true;
+            } else if (sum > x) {
+                right--;
+            }else {
+                left++;
+            }
         }
-        return -1;
+
+        return false;
     }
 
-    static void main(String[] args){
+    public static void main(String[] args){
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter no. of elements in array: ");
+        System.out.print("Enter no. of elements in array: ");
         int n = sc.nextInt();
 
         int[] arr = new int[n];
 
-        System.out.println("Enter elements in array: ");
+        System.out.print("Enter elements in array: ");
         for(int i=0; i<n; i++){
             arr[i] = sc.nextInt();
         }
 
+        System.out.print("Enter number to searching its pair present or not: ");
+        int x = sc.nextInt();
+
+
+        boolean result = pair(arr, x);
+
+        System.out.println("Is pair of " + x + " is present : " + result);
 
     }
 }
