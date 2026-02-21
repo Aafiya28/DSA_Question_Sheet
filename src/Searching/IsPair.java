@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class IsPair {
 
+    //For sorted Array
     static boolean pair(int[] arr, int x){
 
         int n = arr.length;
@@ -22,7 +23,6 @@ public class IsPair {
                 left++;
             }
         }
-
         return false;
     }
 
