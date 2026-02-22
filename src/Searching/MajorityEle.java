@@ -17,7 +17,7 @@ public class MajorityEle {
             }
 
             if(count > n/2){
-                return arr[i];
+                return i;
             }
         }
 
@@ -33,6 +33,7 @@ public class MajorityEle {
 
         int[] arr = new int[n];
 
+        System.out.print("Enter elements in array: ");
         for(int i=0; i<n; i++){
             arr[i] = sc.nextInt();
         }
