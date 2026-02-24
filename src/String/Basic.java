@@ -10,5 +10,7 @@ public class Basic {
         System.out.println(str.charAt(3));
         System.out.println(str.contains("s"));
         System.out.println(str.split("ge", 2));
+
+        System.out.println(str.substring(2));
     }
 }
