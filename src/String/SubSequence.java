@@ -7,6 +7,8 @@ public class SubSequence {
         int n = s1.length();
         int m = s2.length();
 
+        if(n < m) return false;
+
         int j=0;
 
         for(int i=0; i<n && j<m; i++){
