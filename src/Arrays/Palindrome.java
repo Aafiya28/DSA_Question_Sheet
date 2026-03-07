@@ -10,9 +10,7 @@ public class Palindrome {
         int temp = num;
 
         if(num < 0) return false;
-
         if(num < 10) return true;
-
 
         while (temp > 0){
             int rem = temp % 10;
