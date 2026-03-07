@@ -21,8 +21,8 @@ public class SubSequence {
 
     public static void main(String[] args) {
 
-        String s1 = "abcde";
-        String s2 = "abd";
+        String s1 = "madam";
+        String s2 = "mam";
 
         System.out.println(subSeq(s1, s2));
     }
