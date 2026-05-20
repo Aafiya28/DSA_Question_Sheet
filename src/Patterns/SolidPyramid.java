@@ -1,21 +1,21 @@
 package Patterns;
 
-public class PyramidPattern {
-    //Solid Pyramid Pattern
+public class SolidPyramid {
+    //Solid Triangle Pyramid
+
     public static void main(String[] args) {
 
         int num = 5;
 
         for(int row=1; row<=num; row++){
 
-            //for spacing
-            for(int col=num-row; col>0; col--){
+            for(int col=1; col<=row-1; col++){
                 System.out.print("  ");
             }
 
-            for(int k=1; k<= 2*row-1; k++){
-                System.out.print("* ");
-            }
+           for(int col=1; col<=2*num-2*row-1; col++){
+               System.out.print("* ");
+           }
 
             System.out.println();
         }

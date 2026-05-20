@@ -8,12 +8,21 @@ public class TrianglePattern {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter no. of rows and columns for Triangle Pattern: ");
-        int row = sc.nextInt();
-        int col = sc.nextInt();
+        int n = sc.nextInt();
 
+        for(int i=1; i<=n; i++){
+            for(int j=1; j<=i; j++){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
 
-        for(int i=0; i<=row; i++){
-            for(int j=0; j<=i; j++){
+        System.out.println("Reverse Right Triangle");
+        //Reverse Right Triangle
+        int num = 5;
+
+        for(int i=1; i<=num; i++){
+            for(int j=1; j<=num-i+1; j++){
                 System.out.print("* ");
             }
             System.out.println();
