@@ -146,6 +146,7 @@ public class BasicMath {
                 System.out.print(i + ", ");
             }
         }
+        System.out.println();
     }
 
     public static void main(String[] args) {
