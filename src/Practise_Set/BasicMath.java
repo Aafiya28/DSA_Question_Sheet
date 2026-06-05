@@ -100,7 +100,52 @@ public class BasicMath {
         }
 
         return ((long) originalA * originalB) / a ;
+    }
 
+    static boolean isArmstrong(int num){
+
+        int originalNum = num;
+        int sum = 0;
+
+        while (num != 0){
+
+            int digit = num%10;
+            sum  +=  digit * digit * digit;;
+            num = num/10;
+        }
+
+        if(originalNum == sum){
+            return true;
+        }
+        return false;
+    }
+
+    static boolean checkPerfectNumber(int num){
+
+        int sum = 1;
+
+        for(int i=2; i*i<=num; i++){
+            if(num%i == 0){
+                int firstFector = i;
+                int secondFector = num/i;
+                sum += firstFector + secondFector;
+            }
+        }
+
+        if(sum == num){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    static void getAllDivisor(int num){
+
+        for(int i=1; i*i <=num; i++){
+            if(num%i == 0){
+                System.out.print(i + ", ");
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -121,6 +166,12 @@ public class BasicMath {
 
         System.out.println("GCD/HCF of " + 24 + " & " + 12 + " is: " + getGCD(24, 12));
 
-        System.out.println("LCM of " + 24 + " & " + 12 + " is: " + getLCM(24, 12));
+        System.out.println("LCM of 24 & 12 is: " + getLCM(24, 12));
+
+        System.out.println("Is 155 armstrong number: " + isArmstrong(155));
+
+        System.out.println("Is 6 Perfect Number: " + checkPerfectNumber(8));
+
+        getAllDivisor(7);
     }
 }
