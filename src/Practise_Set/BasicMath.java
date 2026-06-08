@@ -125,11 +125,23 @@ public class BasicMath {
         int sum = 1;
 
         for(int i=2; i*i<=num; i++){
-            if(num%i == 0){
-                int firstFector = i;
-                int secondFector = num/i;
-                sum += firstFector + secondFector;
+
+            // M1. method
+            if (num % i == 0) {
+                sum += i;
+                // Avoid double-counting the square root of a perfect square
+                if (i * i != num) {
+                    sum += num / i;
+                }
             }
+
+            //
+            // M2. Method
+//            if(num%i == 0){
+//                int firstFector = i;
+//                int secondFector = num/i;
+//                sum = sum + firstFector + secondFector;
+//            }
         }
 
         if(sum == num){
@@ -171,7 +183,7 @@ public class BasicMath {
 
         System.out.println("Is 155 armstrong number: " + isArmstrong(155));
 
-        System.out.println("Is 6 Perfect Number: " + checkPerfectNumber(8));
+        System.out.println("Is 6 Perfect Number: " + checkPerfectNumber(6));
 
         getAllDivisor(7);
     }
