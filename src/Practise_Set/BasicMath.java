@@ -1,7 +1,12 @@
 package Practise_Set;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
 public class BasicMath {
 
+    //1.
     static void printNum(int num){
 
         while (num != 0){
@@ -12,6 +17,7 @@ public class BasicMath {
         System.out.println();
     }
 
+    //2.
     static int countDigit(int num){
 
         int count = 0;
@@ -23,6 +29,7 @@ public class BasicMath {
         return count;
     }
 
+    //3.
     static int sumOfDigit(int num){
 
         int sum = 0;
@@ -35,6 +42,7 @@ public class BasicMath {
         return sum;
     }
 
+    //4.
     static void reverseDigits(int num){
 
         int reverse = 0;
@@ -47,6 +55,7 @@ public class BasicMath {
         System.out.println(reverse);;
     }
 
+    //5.
     static boolean palindromeCheck(int num){
 
         int original = num;
@@ -65,6 +74,7 @@ public class BasicMath {
         return false;
     }
 
+    //6.
     static boolean isPrime(int num){
 
         for(int i=2; i*i<=num; i++){
@@ -75,6 +85,26 @@ public class BasicMath {
         return true;
     }
 
+    //7.
+    static void allPrimeNum(int num){
+
+        for(int i=2; i<=num; i++){
+            boolean isPrime = true;
+
+            for(int j=2; j*j<=i; j++){
+                if(i%j == 0){
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if (isPrime){
+                System.out.print(i + " ");
+            }
+        }
+    }
+
+    //8.
     static int getGCD(int a, int b){
 
         while (b != 0){
@@ -88,6 +118,7 @@ public class BasicMath {
         return ans;
     }
 
+    //9.
     static long getLCM(int a, int b){
 
         int originalA = a;
@@ -102,6 +133,7 @@ public class BasicMath {
         return ((long) originalA * originalB) / a ;
     }
 
+    //10.
     static boolean isArmstrong(int num){
 
         int originalNum = num;
@@ -120,6 +152,7 @@ public class BasicMath {
         return false;
     }
 
+    //11.
     static boolean checkPerfectNumber(int num){
 
         int sum = 1;
@@ -151,14 +184,54 @@ public class BasicMath {
         }
     }
 
+    //12.
     static void getAllDivisor(int num){
 
-        for(int i=1; i*i <=num; i++){
+        ArrayList<Integer> list = new ArrayList<>();
+
+        list.add(1);
+
+        for(int i=2; i*i<=num; i++){
             if(num%i == 0){
-                System.out.print(i + ", ");
+                list.add(i);
+
+                if(i != num/i){
+                    list.add(num/i);
+                }
             }
         }
-        System.out.println();
+
+        if(num != 1){
+            list.add(num);
+        }
+
+        Collections.sort(list);
+
+        System.out.println("All Divisor of " + num + " are: " + list);
+    }
+
+    //13.
+    static void factorial(int num){
+
+        int fact = 1;
+
+        for(int i=2; i<=num; i++){
+            fact = fact * i;
+        }
+
+        System.out.println("Factorial of " + num + " is: " + fact);
+    }
+
+    //14.
+    static int powerNum(int num, int power){
+
+        int ans = 1;
+
+        for(int i=1; i<=power; i++){
+            ans = ans * num;
+        }
+
+        return ans;
     }
 
     public static void main(String[] args) {
@@ -177,6 +250,11 @@ public class BasicMath {
 
         System.out.println("Check is" + 12 + " is prime number: " + isPrime(11));
 
+        int n = 20;
+        System.out.print("All Prime number form 1 to "+ n + " are: " );
+        allPrimeNum(n);
+        System.out.println();
+
         System.out.println("GCD/HCF of " + 24 + " & " + 12 + " is: " + getGCD(24, 12));
 
         System.out.println("LCM of 24 & 12 is: " + getLCM(24, 12));
@@ -185,6 +263,10 @@ public class BasicMath {
 
         System.out.println("Is 6 Perfect Number: " + checkPerfectNumber(6));
 
-        getAllDivisor(7);
+        getAllDivisor(35);
+
+        factorial(5);
+
+        System.out.println(2 + "^" + 5 + " is: " + powerNum(2, 5) );
     }
 }
