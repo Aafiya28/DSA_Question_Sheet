@@ -206,7 +206,6 @@ public class BasicMath {
         }
 
         Collections.sort(list);
-
         System.out.println("All Divisor of " + num + " are: " + list);
     }
 
@@ -232,6 +231,20 @@ public class BasicMath {
         }
 
         return ans;
+    }
+
+    //15.
+    static int evenDigits(int num){
+
+        int count = 0;
+        while (num > 0){
+            int digit = num%10;
+            if(digit%2 == 0){
+                count++;
+            }
+            num = num/10;
+        }
+        return count;
     }
 
     public static void main(String[] args) {
@@ -268,5 +281,9 @@ public class BasicMath {
         factorial(5);
 
         System.out.println(2 + "^" + 5 + " is: " + powerNum(2, 5) );
+
+        System.out.println("Number of Even Digits in " + 345678122 + " are: " + evenDigits(345678122));
+
+        System.out.println("END");
     }
 }
