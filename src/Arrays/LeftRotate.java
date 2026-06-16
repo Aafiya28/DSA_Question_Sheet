@@ -45,6 +45,11 @@ public class LeftRotate {
         }
         System.out.println();
 
+        for(int a : arr){
+            System.out.print(a + " ");
+        }
+        System.out.println();
+
         leftRotateOne(arr);
 
         // After One Place Rotation
