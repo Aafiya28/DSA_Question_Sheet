@@ -5,13 +5,26 @@ public class Reverse {
         static void reverseArr(int[] arr) {
             int n = arr.length;
             int low = 0;
+            int high = n-1;
 
-            for(int high = n - 1; low < high; --high) {
+//            for(int high = n - 1; low < high; --high) {
+//                int temp = arr[low];
+//                arr[low] = arr[high];
+//                arr[high] = temp;
+//                ++low;
+//            }
+
+            //Two Pointer Method
+            while (low < high){
+
                 int temp = arr[low];
                 arr[low] = arr[high];
                 arr[high] = temp;
-                ++low;
+
+                low++;
+                high--;
             }
+
 
         }
 
