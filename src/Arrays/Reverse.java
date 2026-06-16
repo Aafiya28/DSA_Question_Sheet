@@ -24,8 +24,6 @@ public class Reverse {
                 low++;
                 high--;
             }
-
-
         }
 
         public static void main(String[] args) {
