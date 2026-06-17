@@ -64,11 +64,10 @@ public class LeftRotate {
         int m = sc.nextInt();
         int[] nums = new int[m];
 
+        System.out.print("Enter " + m + " element in array list: ");
         for(int i=0; i<m; i++){
             nums[i] = sc.nextInt();
         }
-
-        System.out.println("Enter " + m + " element in array list: ");
 
         System.out.print("Enter number of place of element rotation : ");
         int k = sc.nextInt();
