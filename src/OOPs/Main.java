@@ -32,6 +32,7 @@ public class Main {
 
 
         //Calling Copy Constructor
+
         Student C = new Student(A);
         System.out.println(C.id);
         System.out.println(C.age);
