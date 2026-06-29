@@ -38,5 +38,16 @@ public class Main {
         System.out.println(C.age);
         System.out.println(C.name);
         System.out.println(C.nos);
+
+
+        //OOPs 1st Pillar : Encapsulation
+        Encapsulation E = new Encapsulation(4,"Minal", 22);
+
+        System.out.println(E.getEmpAge());
+        E.setEmpAge(43);
+        System.out.println(E.getEmpAge());
+        System.out.println(E.getName());
+
+        System.out.println(E.getEmpId());
     }
 }
