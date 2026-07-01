@@ -17,7 +17,7 @@ public class Mode {
             System.out.println(i + " -> " + freq.get(i));
         }
 
-        //For getting highest frequency of key
+        //For getting the highest frequency of key
         int maxFreq = -1;
         int maxFreqKey = -1;
 
