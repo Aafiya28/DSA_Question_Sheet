@@ -21,9 +21,16 @@ public class Mode {
         int maxFreq = -1;
         int maxFreqKey = -1;
 
-        for(int i : freq.keySet()){
-
+        for(int key : freq.keySet()){
+            int currKey = key;
+            int currKeyFreq = freq.get(key);
+            if(currKeyFreq > maxFreqKey){
+                maxFreqKey = currKeyFreq;
+                maxFreq = currKey;
+            }
         }
+
+        System.out.println(maxFreq);
     }
 
     public static void main(String[] args) {
