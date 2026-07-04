@@ -30,7 +30,7 @@ public class Mode {
             }
         }
 
-        System.out.println(maxFreq);
+        System.out.println("Highest Frequency Key: "+ maxFreq);
     }
 
     public static void main(String[] args) {
