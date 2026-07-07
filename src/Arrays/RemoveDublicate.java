@@ -36,6 +36,25 @@ public class RemoveDublicate {
         return res;
     }
 
+    //remove duplicate from sorted array and return length;
+    static int removeDubSort(int[] arr){
+
+        int n = arr.length;
+        int i=0;
+        int j=1;
+
+        while (j<n){
+            if(arr[i] == arr[j]){
+                j++;
+            }else {
+                i++;
+                arr[i] = arr[j];
+                j++;
+            }
+        }
+
+        return i+1;
+    }
     public static void main(String args[])
     {
         int arr[] = {10, 20, 20, 30, 30, 30};
@@ -58,5 +77,7 @@ public class RemoveDublicate {
 
         ArrayList<Integer> result  = removeDuplicates(arr);
         System.out.println(result);
+
+        System.out.println("After removing duplicate length of the array: " + removeDubSort(arr));
     }
 }
