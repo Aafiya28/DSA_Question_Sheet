@@ -43,11 +43,15 @@ public class Main {
         //OOPs 1st Pillar : Encapsulation
         Encapsulation E = new Encapsulation(4,"Minal", 22);
 
-        System.out.println(E.getEmpAge());
+        System.out.println("Age: " + E.getEmpAge());
         E.setEmpAge(43);
-        System.out.println(E.getEmpAge());
-        System.out.println(E.getName());
+        System.out.println("After setter age updated age: " + E.getEmpAge());
+        System.out.println("By using getter name: " + E.getName());
 
         System.out.println(E.getEmpId());
+
+        //----------------- Encapsulation Part END --------------------
+
+        // ---------------
     }
 }
