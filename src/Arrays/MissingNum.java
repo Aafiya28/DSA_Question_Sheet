@@ -1,6 +1,6 @@
 package Arrays;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class MissingNum {
 
@@ -51,23 +51,28 @@ public class MissingNum {
     }
 
     //Finding Missing Element from Duplicate Elements
-    static int missingInDub(int[] arr){
+    static List<Integer> missingInDub(int[] arr){
+
+        List<Integer> ans = new ArrayList<>();
 
         int n = arr.length;
+        for(int idx = 0; idx<n; idx++){
+            int value = Math.abs(arr[idx]);
+            int pos = value - 1;
 
-        int xorEle = 0;
-
-        Arrays.sort(arr);
-
-        for(int i=0; i<n; i++){
-            if(arr[i] > i){
-                continue;
-            }else {
-                xorEle = arr[i];
+            if(arr[pos] > 0){
+                arr[pos] = -arr[pos];
             }
         }
 
-        return  xorEle;
+        for(int i=0; i<n; i++){
+            if(arr[i] > 0){
+                int valueAtIindex = i+1;
+                ans.add(valueAtIindex);
+            }
+        }
+
+        return ans;
     }
 
     public static void main(String[] args) {
@@ -82,7 +87,7 @@ public class MissingNum {
 
         System.out.println("Unique value: " +  uniqueNum(num));
 
-        int[] dupArr = {3, 2, 4, 2, 5};
+        int[] dupArr = {5, 2, 4, 1, 2};
 
         System.out.println("Missing Element in this duplicate elements array: " + missingInDub(dupArr));
     }
