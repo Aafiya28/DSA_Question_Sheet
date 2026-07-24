@@ -81,7 +81,6 @@ public class Main {
         //10. contain();
         System.out.println(list.contains(12));
 
-
         list.add(9);
         list.add(68);
 
@@ -91,10 +90,20 @@ public class Main {
         Collections.sort(list);
         System.out.println(list);
 
-        //clone();
-        System.out.println(arrayList);
+        //12. clone();
+        System.out.println("Printing Entire ArrayList: " + arrayList);
         ArrayList<Integer> newList = (ArrayList<Integer>) arrayList.clone();
         System.out.println(newList);
+
+        //13. ensureCapacity()
+        ArrayList<Integer> marks = new ArrayList<>();
+        marks.ensureCapacity(15);
+        System.out.println("Size of Marks list: " + marks.size());
+        System.out.println("Is Marks list empty: " + marks.isEmpty());
+
+        //14. indexOf()
+        System.out.println(list);
+        System.out.println("In the list index of 68 is: " + list.indexOf(68));
     }
 }
 
