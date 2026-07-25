@@ -6,4 +6,31 @@ public class LinkedList {
     // using a doubly-linked list structure. Unlike standard arrays or ArrayList, its elements are not stored in adjacent
     // memory blocks; instead, each element exists as an independent node containing the data value alongside two memory
     // references pointing to the previous and next nodes in the chain
+
+    private Node head;
+    private Node tail;
+
+    private int size;
+
+    public LinkedList(){
+        this.size = 0;
+    }
+
+    private class Node{
+
+        private int data;
+        private Node next;
+
+        public Node(int val){
+            this.data = val;
+            this.next = null;
+        }
+
+        public Node(int val, Node next){
+            this.data = val;
+            this.next = next;
+        }
+
+    }
+
 }
