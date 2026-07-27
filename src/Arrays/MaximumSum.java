@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class MaximumSum {
 
+    //Kadane's Algorithm, which finds the Maximum Sum SubArray in O(n) time and O(1) space.
     static int maxSum(int[] arr){
 
         int n = arr.length;
