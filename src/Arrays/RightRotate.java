@@ -42,14 +42,37 @@ public class RightRotate {
         for(int i=0; i<k; i++){
             arr[i] = temp[i];
         }
+    }
 
+    //Reversal Approach - Better Approach
+    static void rotate(int[] arr, int k){
+
+        int n = arr.length;
+        k = k%n;
+
+        reverse(arr, 0, n-1);
+        reverse(arr, 0, k-1);
+        reverse(arr, k, n-1);
+
+    }
+
+    //reverse array for rotation
+    static void reverse(int[] arr, int start, int end){
+        while(start < end){
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+
+            start++;
+            end--;
+        }
     }
 
     public static void main(String[] args) {
 
         int[] arr = {1, 2, 3, 5};
 
-        rightRotate(arr);
+//        rightRotate(arr);
 
         for(int a : arr){
             System.out.print(a + " ");
@@ -61,6 +84,12 @@ public class RightRotate {
         kThRightRotation(num, 2);
         for(int a : num){
             System.out.print(a + " ");
+        }
+        System.out.println();
+
+        rotate(arr, 3);
+        for(int a : arr){
+            System.out.print(a + ",");
         }
     }
 }
