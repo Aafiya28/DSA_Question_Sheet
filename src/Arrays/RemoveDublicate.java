@@ -22,7 +22,7 @@ public class RemoveDublicate {
         return result;
     }
 
-    static int remDups(int arr[], int n)
+    static int remDubs(int arr[], int n)
     {
         int res = 1;
 
@@ -66,7 +66,7 @@ public class RemoveDublicate {
         }
         System.out.println();
 
-        n = remDups(arr, n);
+        n = remDubs(arr, n);
         System.out.println("After Removal");
         for(int i = 0; i < n; i++) {
             System.out.print(arr[i]+" ");
