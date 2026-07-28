@@ -5,15 +5,16 @@ public class MoveZeros {
     static void moveZero(int[] arr){
 
         int n = arr.length;
-        int count = 0;
+        int j = 0;
 
         for(int i=0; i<n; i++){
             if(arr[i] != 0){
-                int temp = arr[i];
-                arr[i] = arr[count];
-                arr[count] = temp;
-                count++;
+                arr[j++] = arr[i];
             }
+        }
+
+        while (j < n){
+            arr[j++] = 0;
         }
     }
 
