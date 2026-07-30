@@ -42,4 +42,17 @@ public class Sliding_Beauty {
         }
         return result;
     }
+
+    public static void main(String[] args) {
+
+        int[] arr = {1,-1,-3,-2, 3};
+        int k = 3;
+        int x = 2;
+
+        int[] beauty = getSubarrayBeauty(arr, k, x);
+
+        for(int num : beauty){
+            System.out.print(num + ", ");
+        }
+    }
 }
