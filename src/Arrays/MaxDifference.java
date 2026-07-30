@@ -1,19 +1,21 @@
 package Arrays;
 
+import java.util.Arrays;
+
 public class MaxDifference {
 
     static int maxDiff(int[] arr){
 
         int n=arr.length;
 
-        int res = arr[1] - arr[0];
+        int dif = arr[1] - arr[0];
         int minVal = arr[0];
 
         for(int i=1; i<n; i++){
-            res = Math.max(res, arr[i] - minVal);
+            dif = Math.max(dif, arr[i] - minVal);
             minVal = Math.min(minVal, arr[i]);
         }
-        return res;
+        return dif;
     }
 
     public static void main(String[] args){
@@ -23,5 +25,6 @@ public class MaxDifference {
         int result = maxDiff(arr);
 
         System.out.println("Maximum difference of the array is: " + result);
+
     }
 }
