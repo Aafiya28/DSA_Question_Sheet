@@ -247,6 +247,16 @@ public class BasicMath {
         return count;
     }
 
+    //16.
+    static int fibonacciSeries(int num){
+
+        if(num == 0 || num == 1){
+            return num;
+        }else {
+            return fibonacciSeries(num-1) + fibonacciSeries(num - 2);
+        }
+    }
+
     public static void main(String[] args) {
 
         int num = 1498;
@@ -285,5 +295,7 @@ public class BasicMath {
         System.out.println("Number of Even Digits in " + 345678122 + " are: " + evenDigits(345678122));
 
         System.out.println("END");
+
+        System.out.println(fibonacciSeries(8));
     }
 }
