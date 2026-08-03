@@ -38,6 +38,8 @@ public class All_Palindrome {
 
     public static void main(String[] args) {
 
+        System.out.println(isPalindrome(75));
+
         Scanner sc = new Scanner(System.in);    // not used in this code, declare for future cases!
 
         int L = 10;
@@ -48,5 +50,6 @@ public class All_Palindrome {
         for(int i : palindromeRange){
             System.out.print(i + ", ");
         }
+
     }
 }
