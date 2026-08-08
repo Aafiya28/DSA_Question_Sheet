@@ -13,15 +13,18 @@ public class Selection_Sort {
                     min = j;
                 }
             }
-            int temp = arr[min];
-            arr[min] = arr[i];
-            arr[i] = temp;
+            if(min != i) {
+                int temp = arr[min];
+                arr[min] = arr[i];
+                arr[i] = temp;
+            }
         }
     }
 
     public static void main(String[] args) {
 
-        int[] arr= {13, 46, 24, 50, 20, 9};
+//        int[] arr= {13, 46, 24, 50, 20, 9};
+        int[] arr = {64,25,12,22,11};
 
         for(int num : arr){
             System.out.print(num + " ");
