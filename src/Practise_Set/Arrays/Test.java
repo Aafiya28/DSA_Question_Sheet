@@ -5,6 +5,21 @@ import java.util.Arrays;
 
 public class Test {
 
+    //Print All Sub String
+    static void subString(String str){
+
+        int s = str.length();
+
+        for(int i=0; i<s; i++){
+
+            String sub = " ";
+            for(int j=i; j<s; j++){
+                sub = sub + str.charAt(j);
+                System.out.print(sub + ", ");
+            }
+        }
+    }
+
     static void average(int[] arr){
 
         int n = arr.length;
@@ -94,6 +109,7 @@ public class Test {
         System.out.println("Second smallest element of array is: " + (secondSmallest == Integer.MAX_VALUE ? -1 : secondSmallest));
     }
 
+    //
     static void sum(int[]arr){
 
         int n = arr.length;
@@ -185,5 +201,8 @@ public class Test {
 
         int[] arr1 = {2,3,2, 4, 3};
         System.out.println(findFirstUnsortedEle(arr1));
+
+        String str = "cadbzabcd";
+       subString(str);
     }
 }
