@@ -1,6 +1,8 @@
 package Collection_Freamwork.List;
 
-public class LinkedList {
+import java.util.LinkedList;
+
+public class Linked {
 
     //**In Java, LinkedList is a built-in class in the java.util package that implements the List and Deque interfaces
     // using a doubly-linked list structure. Unlike standard arrays or ArrayList, its elements are not stored in adjacent
@@ -12,7 +14,7 @@ public class LinkedList {
 
     private int size;
 
-    public LinkedList(){
+    public Linked(){
         this.size = 0;
     }
 
@@ -30,6 +32,33 @@ public class LinkedList {
             this.data = val;
             this.next = next;
         }
+
+    }
+
+    public static void main(String[] args) {
+
+
+        // Linked List
+        LinkedList<Integer> linkedList = new LinkedList<>();
+
+        // 1. add()
+        linkedList.add(40);
+        linkedList.add(46);
+
+        System.out.println(linkedList);
+
+        // 2. addAll()
+        LinkedList<Integer> list = new LinkedList<>();
+
+        list.add(56);
+        list.add(34);
+        list.add(78);
+
+        linkedList.addAll(list);
+        System.out.println(linkedList);
+
+        // 3.
+
 
     }
 
