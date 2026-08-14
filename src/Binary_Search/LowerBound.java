@@ -2,6 +2,7 @@ package Binary_Search;
 
 public class LowerBound {
 
+    //Lower Bound of X : array[idx] >= X
     static int lbSearch(int[] arr, int target){
 
         int n = arr.length;
@@ -10,7 +11,6 @@ public class LowerBound {
         int high = n-1;
 
         int ans = n;
-
 
         while(low <= high){
 
