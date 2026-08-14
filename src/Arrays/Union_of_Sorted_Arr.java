@@ -6,6 +6,7 @@ public class Union_of_Sorted_Arr {
 
     //Union of Two Sorted Array
 
+    // Using Set Data Structure
     static List<Integer> unionArray(int[] arr1, int[] arr2){
 
         int n=arr1.length;
