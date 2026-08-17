@@ -2,8 +2,7 @@ package Binary_Search;
 
 public class Occurrence {
 
-    /* First and Last Occurrence */
-
+    /* First and Last Occurrence -  Brute force solution */
     static int[] firstAndLast(int[] arr, int target){
 
         int n=arr.length;
@@ -23,47 +22,49 @@ public class Occurrence {
         return new int[] {first, last};
     }
 
-    //For First&LastOcc Using Binary Search Separately finding first and last occurrence
+    /* For First&LastOcc Using Binary Search Separately finding first and last occurrence - Optimal Solution */
     static int firstOccDirect(int[] arr, int target) {
 
         int low = 0;
         int high = arr.length - 1;
-        int ans = -1;
 
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
+        int first = -1;
 
-            if (arr[mid] == target) {
-                ans = mid;
-                high = mid - 1; // keep looking on the left
-            } else if (arr[mid] < target) {
-                low = mid + 1;
-            } else {
-                high = mid - 1;
+        while(low <= high){
+
+            int mid = low + (high-low) / 2;
+
+            if(arr[mid] == target){
+                first = mid;
+                high = mid-1;
+            }else if(arr[mid] > target){
+                high = mid-1;
+            }else {
+                 low = mid+1;
             }
         }
-        return ans;
+        return first;
     }
 
     static int lastOccDirect(int[] arr, int target) {
 
         int low = 0;
         int high = arr.length - 1;
-        int ans = -1;
+        int last = -1;
 
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
+        while (low <= high){
+            int mid = low + (high-low) / 2;
 
-            if (arr[mid] == target) {
-                ans = mid;
-                low = mid + 1; // keep looking on the right
-            } else if (arr[mid] < target) {
-                low = mid + 1;
-            } else {
-                high = mid - 1;
+            if(arr[mid] == target){
+                last = mid;
+                low = mid+1;
+            }else if(arr[mid] < target) {
+                low = mid+1;
+            }else {
+                high = mid-1;
             }
         }
-        return ans;
+        return last;
     }
 
     static int[] firstAndLastOcc(int[] arr, int x){
@@ -81,8 +82,15 @@ public class Occurrence {
         int[] arr = {3,4,6,13,13,13,20,40};
         int target = 13;
 
-        int[] result = firstAndLastOcc(arr, target);
+        int[] ans = firstAndLast(arr, target);
+        System.out.print("By Using Linear Search: ");
+        for(int num : ans){
+            System.out.print(num + ", ");
+        }
+        System.out.println();
 
+        int[] result = firstAndLastOcc(arr, target);
+        System.out.print("By Using Binary Search: ");
         for(int num : result){
             System.out.print(num + ", ");
         }
