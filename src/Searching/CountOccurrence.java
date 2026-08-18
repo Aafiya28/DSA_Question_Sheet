@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class CountOccurrence {
 
+    //Linear Search
     static int countOcc(int[] arr, int x){
 
         int n = arr.length;
