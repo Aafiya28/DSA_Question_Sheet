@@ -8,7 +8,7 @@ public class Sliding_Beauty {
         int n = arr.length;
 
         int[] result = new int[n-k+1];
-        int freq[] = new int[101];
+        int[] freq = new int[101];
 
         int l=0;
         int r=0;
