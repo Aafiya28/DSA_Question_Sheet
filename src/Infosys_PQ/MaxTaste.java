@@ -35,10 +35,10 @@ public class MaxTaste {
 
             ans += curr.taste;
 
-            long nextTasge = curr.taste - curr.decay;
+            long nextTaste = curr.taste - curr.decay;
 
-            if(nextTasge > 0){
-                pq.offer(new Food(nextTasge, curr.decay));
+            if(nextTaste > 0){
+                pq.offer(new Food(nextTaste, curr.decay));
             }
         }
 
