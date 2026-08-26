@@ -256,6 +256,23 @@ public class BasicMath {
         }
     }
 
+    //17.
+    static long sqrtOfN(long N){
+
+        long ans = 0;
+        long i=1;
+
+        while(i < N){
+
+            if(i*i <= N){
+                ans = i;
+            }
+            i++;
+        }
+
+        return ans;
+    }
+
     public static void main(String[] args) {
 
         int num = 1498;
@@ -296,5 +313,7 @@ public class BasicMath {
         System.out.println("END");
 
         System.out.println(fibonacciSeries(8));
+
+        System.out.println("Square Root of N is: " + sqrtOfN(36));
     }
 }
