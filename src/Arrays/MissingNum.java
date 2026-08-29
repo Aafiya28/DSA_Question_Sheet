@@ -4,6 +4,27 @@ import java.util.*;
 
 public class MissingNum {
 
+    //Brute Force Solution
+    static int misNum(int[] arr){
+
+        int n = arr.length;
+
+        for(int i=0; i<=n; i++){
+            int flat = 0;
+            for(int j=0; j<n-1; j++){
+
+                if(arr[j] == i){
+                    flat = 1;
+                    break;
+                }
+            }
+
+            if(flat == 0) return i;
+        }
+        return  -1;
+    }
+
+    //Optimal Solution
     static int missingNum(int[] arr){
 
         int n = arr.length;
@@ -18,7 +39,7 @@ public class MissingNum {
         return (rangeSum - arrSum);
     }
 
-    // Method 2 using Xor.
+    // Method 2 using Xor.- Optimal Solution
     static int missingNumM2(int[] arr){
 
         int n = arr.length;
@@ -90,5 +111,7 @@ public class MissingNum {
         int[] dupArr = {5, 2, 4, 1, 2};
 
         System.out.println("Missing Element in this duplicate elements array: " + missingInDub(dupArr));
+
+        System.out.println(misNum(arr));
     }
 }
