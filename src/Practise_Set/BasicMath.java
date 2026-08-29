@@ -273,6 +273,34 @@ public class BasicMath {
         return ans;
     }
 
+    //18. Get Nth root of M
+    static int getNthRoot(int N, int M){
+
+        int low = 1;
+        int high = M;
+
+        int ans = 1;
+
+        while (low <= high){
+
+            int mid = (low+high)/2;
+
+            for(int i=1; i<=N; i++){
+                ans *= mid;
+            }
+
+            if(ans == M){
+                return ans;
+            }else if(ans > M){
+                high = mid-1;
+            }else {
+                low = mid+1;
+            }
+        }
+
+        return -1;
+    }
+
     public static void main(String[] args) {
 
         int num = 1498;
@@ -315,5 +343,7 @@ public class BasicMath {
         System.out.println(fibonacciSeries(8));
 
         System.out.println("Square Root of N is: " + sqrtOfN(36));
+
+        System.out.println("3th Root of 27 : " + getNthRoot(3, 27));
     }
 }
