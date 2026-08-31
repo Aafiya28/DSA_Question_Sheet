@@ -2,6 +2,7 @@ package Arrays;
 
 public class Sort_Color {
 
+    //Optimal Solution
     static void sortColor(int[] arr){
 
         int n = arr.length;
