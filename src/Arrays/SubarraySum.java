@@ -24,25 +24,39 @@ public class SubarraySum {
         return false;
     }
 
-    public static void main(String[] args){
+    //Longest subArray with sum K
+    public static int longestSubArray(int[] arr, int k){
 
-        Scanner sc = new Scanner(System.in);
+        int n=arr.length;
 
-        System.out.print("Enter no. of element of array: ");
-        int n = sc.nextInt();
+        int maxLen = 0;
 
-        int[] arr = new int[n];
-
-        System.out.print("Enter elements in array: ");
         for(int i=0; i<n; i++){
-            arr[i] = sc.nextInt();
+            for(int j=i; j<n; j++){
+
+                int currSum = 0;
+                for(int l=i; l<=j; l++){
+                    currSum += arr[l];
+                }
+
+                if(currSum == k){
+                    maxLen = Math.max(maxLen, j-i+1);
+                }
+            }
         }
 
-        System.out.print("Enter sum of sub array: ");
-        int sum = sc.nextInt();
+        return maxLen;
+    }
 
-        boolean result = subArrSum(arr, sum);
+    public static void main(String[] args){
+
+        int[] arr = {10, 5, 2, 7, 1, 9};
+        int k = 15;
+
+        boolean result = subArrSum(arr, k);
 
         System.out.println("Sum of Sub Array present: " + result);
+
+        System.out.println("Longest Sub Array length: " + longestSubArray(arr, 15));
     }
 }
