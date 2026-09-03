@@ -4,6 +4,18 @@ import java.util.Scanner;
 
 public class Palindrome {
 
+    //Recursion Function to Check if a String is palindrome or not
+    static boolean isPalindromeString(String str, int l, int r){
+
+        if(l > r) return true;
+
+        if(str.charAt(l) != str.charAt(r)){
+                return false;
+        }
+
+        return isPalindromeString(str, l+1, r-1);
+    }
+
     static boolean isPalindrome(int num){
 
         int rev = 0;
@@ -37,5 +49,9 @@ public class Palindrome {
             System.out.println(num + " is not palindrome");
         }
 
+        String str = "madam";
+        boolean ans = isPalindromeString(str, 0, str.length()-1);
+
+        System.out.println("Is Palindrome: " + ans);
     }
 }
