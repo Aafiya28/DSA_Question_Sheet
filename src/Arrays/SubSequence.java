@@ -27,6 +27,6 @@ public class SubSequence {
 
         List<Integer> ds = new ArrayList<>();
 
-        subSequence(0, ds, arr, n-1);
+        subSequence(0, ds, arr, n);
     }
 }
