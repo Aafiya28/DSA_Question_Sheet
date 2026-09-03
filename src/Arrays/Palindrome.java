@@ -7,7 +7,7 @@ public class Palindrome {
     //Recursion Function to Check if a String is palindrome or not
     static boolean isPalindromeString(String str, int l, int r){
 
-        if(l > r) return true;
+        if(l >= r) return true;
 
         if(str.charAt(l) != str.charAt(r)){
                 return false;
