@@ -1,7 +1,20 @@
 package Arrays;
 
+import java.util.*;
+
 class Largest_Element {
-    
+
+    //Brute Force Solution
+    static int largestEle(int[] arr){
+
+        //Sort an array
+        Arrays.sort(arr);
+
+        //return last element of an array (array.length - 1);
+        return arr[arr.length-1];
+    }
+
+    //Optimal Solution
     static int largest(int[] arr){
 
         int n = arr.length;
