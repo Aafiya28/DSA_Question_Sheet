@@ -23,7 +23,7 @@ public class All_Palindrome {
         return num == rev;
     }
 
-    static ArrayList<Integer> findallPalindrome(int L, int R){
+    static ArrayList<Integer> findAllPalindrome(int L, int R){
 
         ArrayList<Integer> list = new ArrayList<>();
 
@@ -45,7 +45,7 @@ public class All_Palindrome {
         int L = 10;
         int R = 120;
 
-        ArrayList<Integer> palindromeRange = findallPalindrome(L, R);
+        ArrayList<Integer> palindromeRange = findAllPalindrome(L, R);
 
         for(int i : palindromeRange){
             System.out.print(i + ", ");
