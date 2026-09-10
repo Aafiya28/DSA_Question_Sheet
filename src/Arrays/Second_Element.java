@@ -20,6 +20,7 @@ public class Second_Element {
 
         Arrays.sort(arr);
 
+        //Second Smallest Element
         int smallest = arr[0];
         int second_smallest = Integer.MAX_VALUE;
 
@@ -32,6 +33,7 @@ public class Second_Element {
 
         second_smallest = (second_smallest == Integer.MAX_VALUE ? -1 : second_smallest);
 
+        //Second Largest Element
         int largest = arr[n-1];
         int second_largest = Integer.MIN_VALUE;
 
@@ -46,10 +48,78 @@ public class Second_Element {
         System.out.println("Second Smallest Element: " + second_smallest + ", " + "Second Largest Element: " + second_largest);
     }
 
-    //Better Solution - Second Smallest and Largest Element
+    /* Better Solution - Find Second Smallest and Second-Largest Element
+     * Time Complexity: O(2N), we do two linear traversals in our array.
+     * Space Complexity: O(1), as we are using a constant
+     */
+    static void get2Smallest(int[] arr){
+
+        int n = arr.length;
+
+        if(n < 2){
+            System.out.println(-1);
+            return;
+        }
+
+        int smallest = Integer.MAX_VALUE;
+        int second_smallest = Integer.MAX_VALUE;
+
+        for(int i=0; i<n; i++){
+            if(arr[i] < smallest){
+                smallest = arr[i];
+            }
+        }
+
+        for(int i=0; i<n; i++){
+            if(arr[i] < second_smallest && arr[i] > smallest){
+                second_smallest = arr[i];
+            }
+        }
+
+        second_smallest = (second_smallest == Integer.MAX_VALUE ? -1 : second_smallest);
+
+        System.out.println("Second Smallest Element is: " + second_smallest);
+    }
+
+    static void get2Largest(int[] arr){
+
+        int n = arr.length;
+
+        if(n < 2){
+            System.out.println(-1);
+            return;
+        }
+
+        int largest = arr[0];
+        int second_largest = -1;
+
+        for(int i=1; i<n; i++){
+            if(arr[i] > largest){
+                largest = arr[i];
+            }
+        }
+
+        for(int i=0; i<n; i++){
+            if(arr[i] > second_largest && arr[i] < largest){
+                second_largest = arr[i];
+            }
+        }
+
+        System.out.println("Second Largest Element is: " + second_largest);
+    }
+
+    static void secondElement(int[] arr){
+
+        get2Smallest(arr);
+        get2Largest(arr);
+    }
 
 
-    //Optimal Solution - Second Largest Element
+    /* Optimal Solution - Find Second Smallest and Second-Largest Element
+     * Time Complexity: O(N), we do two linear traversals in our array.
+     * Space Complexity: O(1), as we are using a constant
+     */
+    //Optimal Solution - Second-Largest Element
     static int secondLargest(int[] arr) {
         int n = arr.length;
 
@@ -100,72 +170,26 @@ public class Second_Element {
         return second_smallest == Integer.MAX_VALUE ? -1 : second_smallest;
     }
 
-    /* Optimal Solution - Find Second Smallest and Second-Largest Element
-     * Time Complexity: O(N), we do two linear traversals in our array.
-     * Space Complexity: O(1), as we are using a constant
-     */
     static void getSecondSLElement(int[] arr){
 
-        int n = arr.length;
-
-        if(n < 2){
-            System.out.println(-1 + ", " + -1);
-            return;
-        }
-
-        //Get Second Largest Element
-        int largest = Integer.MIN_VALUE;
-        int slargest = Integer.MIN_VALUE;
-
-        for(int i=0; i<n; i++){
-            if(arr[i] > largest){
-                slargest = largest;
-                largest = arr[i];
-            }else {
-                if(slargest < arr[i] && arr[i] > largest){
-                    slargest = arr[i];
-                }
-            }
-        }
-
-        slargest = (slargest == Integer.MIN_VALUE ? -1 : slargest);
-
-        //Get Second Smallest Element
-        int smallest = Integer.MAX_VALUE;
-        int second_smallest = Integer.MAX_VALUE;
-
-        //Get Second Smallest
-        for(int i=0; i<n; i++){
-            if(arr[i] < smallest){
-                second_smallest = smallest;
-                smallest = arr[i];
-            }else {
-                if(arr[i] < second_smallest && arr[i] > smallest){
-                    second_smallest = arr[i];
-                }
-            }
-        }
-
-        second_smallest = (second_smallest == Integer.MAX_VALUE ? -1 : second_smallest);
+        int second_smallest = secondSmallest(arr);
+        int second_largest = secondLargest(arr);
 
         System.out.println("Second Smallest Distinct Element: " + second_smallest);
-        System.out.println("Second Largest Distinct Element: " +  slargest);
+        System.out.println("Second Largest Distinct Element: " +  second_largest);
     }
 
     public static void main(String[] args) {
-//        int[] arr = new int[]{3, 6, 2, 2, 9, 17, 8, 12};
+        int[] arr = new int[]{3, 6, 2, 2, 9, 17, 8, 12};
+//        int[] arr = new int[]{1, 1, 7, 7, 7};
 
-        int[] arr = new int[]{1, 7, 7, 7, 7};
         System.out.println("Brute Force Solution: ");
         getSecondElement(arr);
 
-
-        int secondLargest = secondLargest(arr);
-        int secondSmallest = secondSmallest(arr);
+        System.out.println("Batter Solution: ");
+        secondElement(arr);
 
         System.out.println("Optimal Solution: ");
-        System.out.println("Second Smallest Element: " + secondSmallest + " & Second Largest Element of Array is: " + secondLargest);
-
         getSecondSLElement(arr);
     }
 }
