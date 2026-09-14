@@ -18,10 +18,25 @@ public class SortedArr {
             }
         }
 
+        //Check If Array is Sorted or Not
+        static boolean sortedArr(int[] arr){
+
+            int n = arr.length;
+
+            for(int i=1; i<n; i++){
+                if(arr[i] < arr[i-1]){
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         public static void main(String[] args) {
 
             int[] arr = {3, 2, 7, 5, 10, 4, 6, 9};
 
+            System.out.println("Array is sorted:" + sortedArr(arr));
             sorted(arr);
 
             for(int num : arr){
