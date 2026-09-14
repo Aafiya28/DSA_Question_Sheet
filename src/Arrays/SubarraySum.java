@@ -24,28 +24,29 @@ public class SubarraySum {
         return false;
     }
 
-    //Longest subArray with sum K
+    //Longest subArray with sum K - Brute-Force Solution - TC - O(N^2). SC - O(1);
     public static int longestSubArray(int[] arr, int k){
 
         int n=arr.length;
 
-        int maxLen = 0;
+        int count = 0;
+        int maxCount= 0;
 
         for(int i=0; i<n; i++){
-            for(int j=i; j<n; j++){
 
-                int currSum = 0;
-                for(int l=i; l<=j; l++){
-                    currSum += arr[l];
-                }
+            int currSum = 0;
+            for(int j=i; j<n; j++){
+                currSum += arr[j];
 
                 if(currSum == k){
-                    maxLen = Math.max(maxLen, j-i+1);
+
+                    count = j-i+1;
+                    maxCount = Math.max(count, maxCount);
                 }
             }
         }
 
-        return maxLen;
+        return maxCount;
     }
 
     public static void main(String[] args){
