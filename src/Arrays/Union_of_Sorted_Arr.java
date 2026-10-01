@@ -66,10 +66,10 @@ public class Union_of_Sorted_Arr {
     }
 
     // Using Two Pointer - Optimal Solution TC - O(N+M) SC - O(1)
-    static List<Integer> unionArr(int[] nums1, int[] nums2){
+    static List<Integer> unionArr(int[] num1, int[] num2){
 
-        int n = nums1.length;
-        int m = nums2.length;
+        int n = num1.length;
+        int m = num2.length;
 
         int i=0;
         int j=0;
@@ -80,14 +80,14 @@ public class Union_of_Sorted_Arr {
 
             int currentValue;
 
-            if(nums1[i] < nums2[j]){
-                currentValue = nums1[i];
+            if(num1[i] < num2[j]){
+                currentValue = num1[i];
                 i++;
-            }else if(nums1[i] > nums2[j]){
-                currentValue = nums2[j];
+            }else if(num1[i] > num2[j]){
+                currentValue = num2[j];
                 j++;
             }else {
-                currentValue = nums1[i];
+                currentValue = num1[i];
                 i++;
                 j++;
             }
@@ -100,8 +100,8 @@ public class Union_of_Sorted_Arr {
 
         while (i < n) {
             if (unionResult.isEmpty() ||
-                    unionResult.get(unionResult.size() - 1) != nums1[i]) {
-                unionResult.add(nums1[i]);
+                    unionResult.get(unionResult.size() - 1) != num1[i]) {
+                unionResult.add(num1[i]);
             }
 
             i++;
@@ -110,8 +110,8 @@ public class Union_of_Sorted_Arr {
         // Process values left in the second array.
         while (j < m) {
             if (unionResult.isEmpty() ||
-                    unionResult.get(unionResult.size() - 1) != nums2[j]) {
-                unionResult.add(nums2[j]);
+                    unionResult.get(unionResult.size() - 1) != num2[j]) {
+                unionResult.add(num2[j]);
             }
 
             j++;
@@ -137,6 +137,14 @@ public class Union_of_Sorted_Arr {
 
         System.out.print("Better Solution: ");
         for(int num : unionResult){
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        List<Integer> unionArray = new ArrayList<>(unionArray(arr1, arr2));
+
+        System.out.print("Optimal Solution by Two Pointer: ");
+        for (int num : unionArray){
             System.out.print(num + " ");
         }
     }
