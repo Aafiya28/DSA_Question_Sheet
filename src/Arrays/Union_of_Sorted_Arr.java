@@ -66,10 +66,10 @@ public class Union_of_Sorted_Arr {
     }
 
     // Using Two Pointer - Optimal Solution TC - O(N+M) SC - O(1)
-    static List<Integer> unionArr(int[] num1, int[] num2){
+    static List<Integer> unionArr(int[] num1, int[] nums2){
 
         int n = num1.length;
-        int m = num2.length;
+        int m = nums2.length;
 
         int i=0;
         int j=0;
@@ -80,11 +80,11 @@ public class Union_of_Sorted_Arr {
 
             int currentValue;
 
-            if(num1[i] < num2[j]){
+            if(num1[i] < nums2[j]){
                 currentValue = num1[i];
                 i++;
-            }else if(num1[i] > num2[j]){
-                currentValue = num2[j];
+            }else if(num1[i] > nums2[j]){
+                currentValue = nums2[j];
                 j++;
             }else {
                 currentValue = num1[i];
@@ -110,8 +110,8 @@ public class Union_of_Sorted_Arr {
         // Process values left in the second array.
         while (j < m) {
             if (unionResult.isEmpty() ||
-                    unionResult.get(unionResult.size() - 1) != num2[j]) {
-                unionResult.add(num2[j]);
+                    unionResult.get(unionResult.size() - 1) != nums2[j]) {
+                unionResult.add(nums2[j]);
             }
 
             j++;
