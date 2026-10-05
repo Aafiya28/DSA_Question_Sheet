@@ -47,6 +47,40 @@ public class LL {
         currNode.next = newNode;
     }
 
+    //Delete First Operation
+    public void deleteFirst(){
+
+        if(head == null){
+            System.out.println("This list is empty");
+            return;
+        }
+
+        head = head.next;
+    }
+
+    //Delete Last Operation
+    public void deleteLast(){
+
+        if(head == null){
+            System.out.println("This list is empty");
+            return;
+        }
+
+        if(head.next == null){
+            head = null;
+            return;
+        }
+
+        Node secondLast = head;
+        Node lastNode = head.next;
+        while (lastNode.next != null){
+            lastNode = lastNode.next;
+            secondLast = secondLast.next;
+        }
+
+        secondLast.next = null;
+    }
+
     //Travers and printing list node.
     public void printList(){
         if(head == null){
@@ -66,12 +100,21 @@ public class LL {
 
         LL list = new LL();
 
-        list.addFirst(10);
-        list.addFirst(16);
+        list.addFirst(1);
+        list.addFirst(2);
 
-        list.addFirst(34);
-        list.addLast(43);
+        list.printList();
 
+        list.addFirst(3);
+        list.printList();
+
+        list.addLast(4);
+        list.printList();
+
+        list.deleteFirst();
+        list.printList();
+
+        list.deleteLast();
         list.printList();
     }
 }
