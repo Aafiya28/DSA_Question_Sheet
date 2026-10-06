@@ -4,7 +4,13 @@ import java.util.List;
 
 public class LL {
 
-    private  Node head;
+    Node head;
+    int size = 0;
+
+    LL(){
+       this.size = 0;
+    }
+
     class Node{
 
         int data;
@@ -13,6 +19,7 @@ public class LL {
         Node(int value){
             this.data = value;
             this.next = null;
+            size++;
         }
     }
 
@@ -55,6 +62,7 @@ public class LL {
             return;
         }
 
+        size--;
         head = head.next;
     }
 
@@ -66,6 +74,7 @@ public class LL {
             return;
         }
 
+        size--;
         if(head.next == null){
             head = null;
             return;
@@ -96,6 +105,10 @@ public class LL {
         System.out.println("null");
     }
 
+    public int getSize(){
+        return size;
+    }
+
     public static void main(String[] args) {
 
         LL list = new LL();
@@ -111,10 +124,14 @@ public class LL {
         list.addLast(4);
         list.printList();
 
+        System.out.println("Size of the LinkedList: " + list.getSize());
+
         list.deleteFirst();
         list.printList();
 
         list.deleteLast();
         list.printList();
+
+        System.out.println("Size of the LinkedList: " +  list.getSize());
     }
 }
