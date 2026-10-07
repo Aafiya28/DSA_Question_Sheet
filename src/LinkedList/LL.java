@@ -109,29 +109,69 @@ public class LL {
         return size;
     }
 
+    public void reverseIterative(){
+
+        if(head == null || head.next == null){
+            return;
+        }
+
+        Node prevNode = head;
+        Node currNode = head.next;
+
+        while (currNode != null){
+            Node nextNode = currNode.next;
+            currNode.next = prevNode;
+
+            //update
+            prevNode = currNode;
+            currNode = nextNode;
+        }
+
+        head.next = null;
+        head = prevNode;
+    }
+
+    public Node reverseRecursive(Node head){
+
+        if(head == null || head.next == null){
+            return head;
+        }
+
+        Node newNode = reverseRecursive(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return newNode;
+    }
+
     public static void main(String[] args) {
 
         LL list = new LL();
 
-        list.addFirst(1);
-        list.addFirst(2);
-
-        list.printList();
+        list.addLast(4);
+        list.addLast(5);
 
         list.addFirst(3);
-        list.printList();
+        list.addFirst(2);
+        list.addFirst(1);
+        list.addFirst(0);
 
-        list.addLast(4);
-        list.printList();
-
-        System.out.println("Size of the LinkedList: " + list.getSize());
-
-        list.deleteFirst();
         list.printList();
 
         list.deleteLast();
         list.printList();
 
+        list.deleteFirst();
+        list.printList();
+
         System.out.println("Size of the LinkedList: " +  list.getSize());
+
+//        list.reverseIterative();
+//        System.out.print("After Revers Iterative Operation List is: ");
+//        list.printList();
+
+        list.head =  list.reverseRecursive(list.head);
+        System.out.print("After Reverse Recursive Operation List is: ");
+        list.printList();
     }
 }
