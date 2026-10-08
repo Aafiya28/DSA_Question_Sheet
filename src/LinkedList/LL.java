@@ -164,7 +164,7 @@ public class LL {
         list.deleteFirst();
         list.printList();
 
-        System.out.println("Size of the LinkedList: " +  list.getSize());
+//        System.out.println("Size of the LinkedList: " +  list.getSize());
 
 //        list.reverseIterative();
 //        System.out.print("After Revers Iterative Operation List is: ");
