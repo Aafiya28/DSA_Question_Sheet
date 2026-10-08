@@ -18,6 +18,11 @@ public class Problems {
     // Delete all nodes which have values greater than 25.
     static void removeGreaterTarget(LinkedList<Integer> list, int target){
 
+        for(int i=1; i<=50; i++){
+            list.add(i);
+        }
+            System.out.println(list);
+
     }
 
     public static void main(String[] args) {
@@ -34,6 +39,7 @@ public class Problems {
 
         search(list, 7);
 
+//        removeGreaterTarget();
         }
 
 }
