@@ -164,8 +164,24 @@ public class LL {
         }
         curr.next = curr.next.next;
         size--;
+    }
 
+    //Delete Nth Node form Last
+    public void deleteNthNodeL(int index){
 
+        if(head == null || index < 0 || index > size){
+            System.out.println("Invalid Index");
+            return;
+        }
+
+        int idx = size-index;
+
+        Node curr = head;
+        for(int i=0; i<idx-1; i++){
+            curr = curr.next;
+        }
+        curr.next = curr.next.next;
+        size--;
     }
 
     public static void main(String[] args) {
@@ -188,7 +204,7 @@ public class LL {
         list.deleteFirst();
         list.printList();
 
-//        System.out.println("Size of the LinkedList: " +  list.getSize());
+        System.out.println("Size of the LinkedList: " +  list.getSize());
 
 //        list.reverseIterative();
 //        System.out.print("After Revers Iterative Operation List is: ");
@@ -199,8 +215,12 @@ public class LL {
 //        list.printList();
 
 
-        list.deleteNthNode(3);
-        System.out.print("After Delete 4th Node: ");
+//        list.deleteNthNode(3);
+//        System.out.print("After Delete 4th Node: ");
+//        list.printList();
+
+        list.deleteNthNodeL(2);
+        System.out.print("After Delete 2 Node from Last: ");
         list.printList();
     }
 }
