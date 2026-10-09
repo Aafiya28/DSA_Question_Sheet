@@ -188,14 +188,15 @@ public class LL {
 
         LL list = new LL();
 
-        list.addLast(4);
-        list.addLast(5);
 
         list.addFirst(3);
         list.addFirst(2);
         list.addFirst(1);
         list.addFirst(0);
 
+        list.addLast(4);
+        list.addLast(5);
+        list.addLast(6);
         list.printList();
 
         list.deleteLast();
@@ -206,21 +207,26 @@ public class LL {
 
         System.out.println("Size of the LinkedList: " +  list.getSize());
 
+//        Reversing List by Iterative Method
 //        list.reverseIterative();
 //        System.out.print("After Revers Iterative Operation List is: ");
 //        list.printList();
 
+//        Reverse List by Recursive Method
 //        list.head =  list.reverseRecursive(list.head);
 //        System.out.print("After Reverse Recursive Operation List is: ");
 //        list.printList();
 
-
-//        list.deleteNthNode(3);
-//        System.out.print("After Delete 4th Node: ");
-//        list.printList();
-
-        list.deleteNthNodeL(2);
-        System.out.print("After Delete 2 Node from Last: ");
+        System.out.print("Before Deleting 3rd Node from End, List is: ");
         list.printList();
+        list.deleteNthNode(3);
+        System.out.print("After Delete 3th Node from Start: ");
+        list.printList();
+
+//        System.out.print("Before Deleting 2nd Node from End, List is: ");
+//        list.printList();
+//        list.deleteNthNodeL(2);
+//        System.out.print("After Delete 2nd Node from End: ");
+//        list.printList();
     }
 }
