@@ -8,6 +8,7 @@ public class LL {
     Node head;
     int size = 0;
 
+    // LL Class Constructor
     LL(){
        this.size = 0;
     }
@@ -17,6 +18,7 @@ public class LL {
         int data;
         Node next;
 
+        //Node Class Constructor
         Node(int value){
             this.data = value;
             this.next = null;
@@ -24,7 +26,7 @@ public class LL {
         }
     }
 
-    //Add First Operation
+    //Add First Operation.
     public void addFirst(int data){
 
         Node newNode = new Node(data);
@@ -37,7 +39,7 @@ public class LL {
         head = newNode;
     }
 
-    //Add Last Operation
+    //Add Last Operation.
     public void addLast (int data){
 
         Node newNode = new Node(data);
@@ -55,7 +57,7 @@ public class LL {
         currNode.next = newNode;
     }
 
-    //Delete First Operation
+    //Delete First Operation.
     public void deleteFirst(){
 
         if(head == null){
@@ -67,7 +69,7 @@ public class LL {
         head = head.next;
     }
 
-    //Delete Last Operation
+    //Delete Last Operation.
     public void deleteLast(){
 
         if(head == null){
@@ -106,10 +108,12 @@ public class LL {
         System.out.println("null");
     }
 
+    //Get Size of Linked List.
     public int getSize(){
         return size;
     }
 
+    //Iterative Method to Reverse List.
     public void reverseIterative(){
 
         if(head == null || head.next == null){
@@ -132,6 +136,7 @@ public class LL {
         head = prevNode;
     }
 
+    //Recursive Method to Reverse List.
     public Node reverseRecursive(Node head){
 
         if(head == null || head.next == null){
@@ -145,7 +150,7 @@ public class LL {
         return newNode;
     }
 
-    //Delete Nth Node from Starting
+    //Delete Nth Node from Starting.
     public void deleteNthNode( int idx){
 
         if(head == null || idx < 0 || idx > size){
@@ -166,7 +171,7 @@ public class LL {
         size--;
     }
 
-    //Delete Nth Node form Last
+    //Delete Nth Node form Last.
     public void deleteNthNodeL(int index){
 
         if(head == null || index < 0 || index > size){
@@ -184,6 +189,7 @@ public class LL {
         size--;
     }
 
+    //Main Method/Function.
     public static void main(String[] args) {
 
         LL list = new LL();
