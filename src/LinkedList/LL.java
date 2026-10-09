@@ -1,5 +1,6 @@
 package LinkedList;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class LL {
@@ -144,6 +145,29 @@ public class LL {
         return newNode;
     }
 
+    //Delete Nth Node from Starting
+    public void deleteNthNode( int idx){
+
+        if(head == null || idx < 0 || idx > size){
+            System.out.println("Invalid Index");
+            return;
+        }
+
+        if(idx == 0){
+            head = head.next;
+            return;
+        }
+
+        Node curr = head;
+        for(int i=1; i<idx-1; i++){
+            curr = curr.next;
+        }
+        curr.next = curr.next.next;
+        size--;
+
+
+    }
+
     public static void main(String[] args) {
 
         LL list = new LL();
@@ -170,8 +194,13 @@ public class LL {
 //        System.out.print("After Revers Iterative Operation List is: ");
 //        list.printList();
 
-        list.head =  list.reverseRecursive(list.head);
-        System.out.print("After Reverse Recursive Operation List is: ");
+//        list.head =  list.reverseRecursive(list.head);
+//        System.out.print("After Reverse Recursive Operation List is: ");
+//        list.printList();
+
+
+        list.deleteNthNode(3);
+        System.out.print("After Delete 4th Node: ");
         list.printList();
     }
 }
