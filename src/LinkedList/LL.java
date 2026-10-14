@@ -22,7 +22,6 @@ public class LL {
         Node(int value){
             this.data = value;
             this.next = null;
-            size++;
         }
     }
 
@@ -30,6 +29,7 @@ public class LL {
     public void addFirst(int data){
 
         Node newNode = new Node(data);
+        size++;
         if(head == null){
             head = newNode;
             return;
@@ -43,6 +43,7 @@ public class LL {
     public void addLast (int data){
 
         Node newNode = new Node(data);
+        size++;
 
         if(head == null){
             head = newNode;
@@ -160,6 +161,7 @@ public class LL {
 
         if(idx == 0){
             head = head.next;
+            size--;
             return;
         }
 
@@ -179,6 +181,12 @@ public class LL {
             return;
         }
 
+        if (index == size) {
+            head = head.next;
+            size--;
+            return;
+        }
+
         int idx = size-index;
 
         Node curr = head;
@@ -193,7 +201,6 @@ public class LL {
     public static void main(String[] args) {
 
         LL list = new LL();
-
 
         list.addFirst(3);
         list.addFirst(2);
@@ -223,16 +230,18 @@ public class LL {
 //        System.out.print("After Reverse Recursive Operation List is: ");
 //        list.printList();
 
-        System.out.print("Before Deleting 3rd Node from End, List is: ");
+//        System.out.print("Before Deleting 3rd Node from Start, List is: ");
+//        list.printList();
+//        list.deleteNthNode(3);
+//        System.out.print("After Delete 3th Node from Start: ");
+//        list.printList();
+
+        System.out.print("Before Deleting 2nd Node from End, List is: ");
         list.printList();
-        list.deleteNthNode(3);
-        System.out.print("After Delete 3th Node from Start: ");
+        list.deleteNthNodeL(2);
+        System.out.print("After Delete 2nd Node from End: ");
         list.printList();
 
-//        System.out.print("Before Deleting 2nd Node from End, List is: ");
-//        list.printList();
-//        list.deleteNthNodeL(2);
-//        System.out.print("After Delete 2nd Node from End: ");
-//        list.printList();
+
     }
 }
