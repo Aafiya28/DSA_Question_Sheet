@@ -24,16 +24,19 @@ public class MajorityElement {
         return -1;
     }
 
-    //Better Solution. TC  -
+    //Better Solution. TC  - O(N) SC: O(k), where k is the number of distinct values stored in the hash map. In the worst case, this is O(n) auxiliary space.
     static int majorityElement(int[] arr){
 
         int n = arr.length;
         HashMap<Integer, Integer> map = new HashMap<>();
 
-        for(int i=0; i<n; i++){
-            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
+        for(int value : arr){
+            int updatedFreq = map.getOrDefault(value, 0) + 1;
+            map.put(value, updatedFreq);
 
-            // To be continue --------------------
+            if(updatedFreq > n/2){
+                return value;
+            }
         }
 
         return -1;
@@ -48,5 +51,9 @@ public class MajorityElement {
         int majorityElement = majorityEle(arr);
 
         System.out.println("Majority Element: " + majorityElement);
+
+        int majorityFrequencyEle = majorityElement(arr);
+
+        System.out.println("Majority Frequency Element : " + majorityFrequencyEle);
     }
 }
