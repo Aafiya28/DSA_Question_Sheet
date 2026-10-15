@@ -5,16 +5,7 @@ import java.util.List;
 
 public class LL {
 
-    Node head;
-    int size = 0;
-
-    // LL Class Constructor
-    LL(){
-       this.size = 0;
-    }
-
     class Node{
-
         int data;
         Node next;
 
@@ -25,63 +16,76 @@ public class LL {
         }
     }
 
+    private Node head;
+    private Node tail;
+    private int size = 0;
+
+    // LL Class Constructor
+    LL(){
+        this.head = null;
+        this.tail = null;
+       this.size = 0;
+    }
+
     //Add First Operation.
     public void addFirst(int data){
 
         Node newNode = new Node(data);
-        size++;
         if(head == null){
             head = newNode;
-            return;
+            tail = newNode;
+        }else {
+            newNode.next = head;
+            head = newNode;
         }
-
-        newNode.next = head;
-        head = newNode;
+        size++;
     }
 
     //Add Last Operation.
     public void addLast (int data){
 
         Node newNode = new Node(data);
-        size++;
 
         if(head == null){
             head = newNode;
-            return;
+            tail = newNode;
+        }else {
+            tail.next = newNode;
+            tail = newNode;
         }
 
-        Node currNode = head;
-        while (currNode.next != null){
-            currNode = currNode.next;
-        }
-
-        currNode.next = newNode;
+        size++;
     }
 
     //Delete First Operation.
-    public void deleteFirst(){
+    public int deleteFirst() {
+        if (head == null) {
+            System.out.println("List is empty");
+        }
 
-        if(head == null){
-            System.out.println("This list is empty");
-            return;
+        int headNode = head.data;
+        head = head.next;
+
+        if (head == null) {
+            tail = null;
         }
 
         size--;
-        head = head.next;
+        return headNode;
     }
 
     //Delete Last Operation.
-    public void deleteLast(){
+    public Node deleteLast(){
 
         if(head == null){
             System.out.println("This list is empty");
-            return;
+            return null;
         }
 
         size--;
         if(head.next == null){
             head = null;
-            return;
+            return head;
         }
 
         Node secondLast = head;
@@ -92,13 +96,15 @@ public class LL {
         }
 
         secondLast.next = null;
+
+        return head;
     }
 
     //Travers and printing list node.
-    public void printList(){
+    public Node printList(Node head){
         if(head == null){
             System.out.println("List is empty!");
-            return;
+            return null;
         }
 
         Node currNode = head;
@@ -107,6 +113,8 @@ public class LL {
             currNode = currNode.next;
         }
         System.out.println("null");
+
+        return head;
     }
 
     //Get Size of Linked List.
@@ -115,13 +123,13 @@ public class LL {
     }
 
     //Iterative Method to Reverse List.
-    public void reverseIterative(){
+    public Node reverseIterative(Node head){
 
         if(head == null || head.next == null){
-            return;
+            return head;
         }
 
-        Node prevNode = head;
+        Node prevNode = null;
         Node currNode = head.next;
 
         while (currNode != null){
@@ -135,6 +143,8 @@ public class LL {
 
         head.next = null;
         head = prevNode;
+
+        return head;
     }
 
     //Recursive Method to Reverse List.
@@ -152,39 +162,41 @@ public class LL {
     }
 
     //Delete Nth Node from Starting.
-    public void deleteNthNode( int idx){
+    public Node deleteNthNode( int idx){
 
         if(head == null || idx < 0 || idx > size){
             System.out.println("Invalid Index");
-            return;
+            return null;
         }
 
         if(idx == 0){
             head = head.next;
             size--;
-            return;
+            return head;
         }
 
         Node curr = head;
-        for(int i=1; i<idx-1; i++){
+        for(int i=0; i<idx-1; i++){
             curr = curr.next;
         }
         curr.next = curr.next.next;
         size--;
+
+        return head;
     }
 
     //Delete Nth Node form Last.
-    public void deleteNthNodeL(int index){
+    public Node deleteNthNodeL(int index){
 
         if(head == null || index < 0 || index > size){
             System.out.println("Invalid Index");
-            return;
+            return null;
         }
 
         if (index == size) {
             head = head.next;
             size--;
-            return;
+            return head;
         }
 
         int idx = size-index;
@@ -195,6 +207,33 @@ public class LL {
         }
         curr.next = curr.next.next;
         size--;
+
+        return head;
+    }
+
+    public Node deletingNode(Node head, int X){
+
+        if(head == null){
+            return null;
+        }
+
+        if(head.data == X){
+            size--;
+            return head.next;
+        }
+
+        Node currNode = head;
+
+        while(currNode.next != null){
+            if(currNode.next.data == X){
+                currNode.next = currNode.next.next;
+                size--;
+                break;
+            }
+            currNode = currNode.next;
+        }
+
+        return head;
     }
 
     //Main Method/Function.
@@ -205,42 +244,53 @@ public class LL {
         list.addFirst(3);
         list.addFirst(2);
         list.addFirst(1);
-        list.addFirst(0);
+        list.addFirst(6);
+
+        list.printList(list.head);
 
         list.addLast(4);
         list.addLast(5);
         list.addLast(6);
-        list.printList();
+
+        System.out.print("Before deleting last node : ");
+        list.printList(list.head);
 
         list.deleteLast();
-        list.printList();
+        System.out.print("After deleting last node : ");
+        list.printList(list.head);
 
         list.deleteFirst();
-        list.printList();
+        list.printList(list.head);
 
         System.out.println("Size of the LinkedList: " +  list.getSize());
 
 //        Reversing List by Iterative Method
-//        list.reverseIterative();
+//        list.reverseIterative(list.head);
 //        System.out.print("After Revers Iterative Operation List is: ");
-//        list.printList();
+//        list.printList(list.head);
 
 //        Reverse List by Recursive Method
 //        list.head =  list.reverseRecursive(list.head);
 //        System.out.print("After Reverse Recursive Operation List is: ");
-//        list.printList();
+//        list.printList(list.head);
 
-//        System.out.print("Before Deleting 3rd Node from Start, List is: ");
-//        list.printList();
-//        list.deleteNthNode(3);
-//        System.out.print("After Delete 3th Node from Start: ");
-//        list.printList();
+        System.out.print("Before Deleting 3rd Node from Start, List is: ");
+        list.printList(list.head);
+        list.deleteNthNode(3);
+        System.out.print("After Delete 3th Node from Start: ");
+        list.printList(list.head);
 
         System.out.print("Before Deleting 2nd Node from End, List is: ");
-        list.printList();
+        list.printList(list.head);
         list.deleteNthNodeL(2);
         System.out.print("After Delete 2nd Node from End: ");
-        list.printList();
+        list.printList(list.head);
+
+
+        System.out.println("Delete Node : " + 7);
+        list.deletingNode(list.head, 7);
+
+        list.printList(list.head);
 
 
     }
