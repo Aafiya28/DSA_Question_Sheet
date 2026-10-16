@@ -2,10 +2,10 @@ package LinkedList;
 
 import java.util.LinkedList;
 
-public class Problems {
+public class SingleLL {
 
-    Node head;
-    int size;
+    public Node head;
+    public int size;
 
     public static class Node{
 
