@@ -79,6 +79,7 @@ public class DoubleLL {
         if(head == tail){
             head = null;
             tail = null;
+            return;
         }
 
         Node temp = tail;
