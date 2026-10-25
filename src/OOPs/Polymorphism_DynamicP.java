@@ -1,0 +1,132 @@
+package OOPs;
+
+abstract class CAR {
+    protected String brand;
+    protected String model;
+    protected boolean isEngineOn;
+    protected int currentSpeed;
+
+    public CAR(String brand, String model) {
+        this.brand = brand;
+        this.model = model;
+        this.isEngineOn = false;
+        this.currentSpeed = 0;
+    }
+
+    // Common methods for all cars.
+    public void startEngine() {
+        isEngineOn = true;
+        System.out.println(brand + " " + model + " : Engine started.");
+    }
+
+    public void stopEngine() {
+        isEngineOn = false;
+        currentSpeed = 0;
+        System.out.println(brand + " " + model + " : Engine turned off.");
+    }
+
+    // Abstract methods for dynamic polymorphism
+    public abstract void accelerate();
+    public abstract void brake();
+}
+
+class Manual extends CAR{
+
+    private int currentGear;
+
+    public Manual(String brand, String model) {
+        super(brand, model);
+        this.currentGear = 0;
+    }
+
+    // Specialized method for Manual Car
+    public void shiftGear(int gear) {
+        currentGear = gear;
+        System.out.println(brand + " " + model + " : Shifted to gear " + currentGear);
+    }
+
+    // Overriding accelerate - Dynamic Polymorphism
+    @Override
+    public void accelerate() {
+        if (!isEngineOn) {
+            System.out.println(brand + " " + model + " : Cannot accelerate! Engine is off.");
+            return;
+        }
+        currentSpeed += 20;
+        System.out.println(brand + " " + model + " : Accelerating to " + currentSpeed + " km/h");
+    }
+
+    // Overriding brake - Dynamic Polymorphism
+    @Override
+    public void brake() {
+        currentSpeed -= 20;
+        if (currentSpeed < 0) currentSpeed = 0;
+        System.out.println(brand + " " + model + " : Braking! Speed is now " + currentSpeed + " km/h");
+    }
+}
+
+class Electric extends CAR{
+
+    private int batteryLevel;
+
+    public Electric(String brand, String model) {
+        super(brand, model);
+        this.batteryLevel = 100;
+    }
+
+    // Specialized method for Electric Car
+    public void chargeBattery() {
+        batteryLevel = 100;
+        System.out.println(brand + " " + model + " : Battery fully charged!");
+    }
+
+    // Overriding accelerate - Dynamic Polymorphism
+    @Override
+    public void accelerate() {
+        if (!isEngineOn) {
+            System.out.println(brand + " " + model + " : Cannot accelerate! Engine is off.");
+            return;
+        }
+        if (batteryLevel <= 0) {
+            System.out.println(brand + " " + model + " : Battery dead! Cannot accelerate.");
+            return;
+        }
+        batteryLevel -= 10;
+        currentSpeed += 15;
+        System.out.println(brand + " " + model + " : Accelerating to " + currentSpeed
+                + " km/h. Battery at " + batteryLevel + "%.");
+    }
+
+    // Overriding brake - Dynamic Polymorphism
+    @Override
+    public void brake() {
+        currentSpeed -= 15;
+        if (currentSpeed < 0) currentSpeed = 0;
+        System.out.println(brand + " " + model + " : Regenerative braking! Speed is now "
+                + currentSpeed + " km/h. Battery at " + batteryLevel + "%.");
+    }
+}
+
+public class Polymorphism_DynamicP {
+
+    public static void main(String[] args) {
+
+        CAR myManualCar = new Manual("Suzuki", "WagonR");
+
+            myManualCar.startEngine();
+            myManualCar.accelerate();  // Specific to Manual Car
+            myManualCar.accelerate();
+            myManualCar.brake();
+            myManualCar.stopEngine();
+
+            System.out.println("----------------------");
+
+        CAR myElectricCar = new Electric("Tesla", "Model S");
+
+            myElectricCar.startEngine();
+            myElectricCar.accelerate();
+            myElectricCar.accelerate();
+            myElectricCar.brake();
+            myElectricCar.stopEngine();
+    }
+}
