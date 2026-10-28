@@ -93,6 +93,10 @@ public class DoubleLL {
         temp.prev = null;
     }
 
+    public int getSize(){
+        return this.size;
+    }
+
     public void print(){
 
         Node temp = head;
@@ -122,6 +126,7 @@ public class DoubleLL {
         dll.pop_back();
         dll.print();
 
+        System.out.println("Size of Doubly LL: " +  dll.getSize());
     }
 
 }
