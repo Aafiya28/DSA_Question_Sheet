@@ -1,9 +1,8 @@
 package LinkedList;
 
-
 import java.util.LinkedList;
 
-class Node{
+class Node {
 
     int data;
     Node next;
@@ -19,10 +18,12 @@ public class DoubleLL {
 
     Node head;
     Node tail;
+    int size;
 
     DoubleLL(){
         head = null;
         tail = null;
+        size = 0;
     }
 
 
@@ -37,6 +38,7 @@ public class DoubleLL {
             head.prev = newNode;
             head = newNode;
         }
+        size++;
     }
 
     //Push Node in back(end).
@@ -51,6 +53,7 @@ public class DoubleLL {
             newNode.prev = tail;
             tail = newNode;
         }
+        size++;
     }
 
     //Pop Node from front(starting).
@@ -61,6 +64,7 @@ public class DoubleLL {
             return;
         }
 
+        size--;
         Node temp = head;
         head = head.next;
         if(head != null){
@@ -76,6 +80,7 @@ public class DoubleLL {
             return;
         }
 
+        size--;
         if(head == tail){
             head = null;
             tail = null;
@@ -116,7 +121,6 @@ public class DoubleLL {
 
         dll.pop_back();
         dll.print();
-        return;
 
     }
 
