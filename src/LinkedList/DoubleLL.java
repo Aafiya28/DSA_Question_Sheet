@@ -13,6 +13,12 @@ class Node {
         this.next = null;
         this.prev = null;
     }
+
+    Node(int val, Node next, Node prev){
+        this.data = val;
+        this.next = next;
+        this.prev = prev;
+    }
 }
 public class DoubleLL {
 
@@ -93,6 +99,26 @@ public class DoubleLL {
         temp.prev = null;
     }
 
+    public static Node convertArrToDll(int[] arr){
+
+        // 1. Immediately handle the edge cases (Crucial for Amazon!)
+        if (arr == null || arr.length == 0) {
+            return null;
+        }
+
+        Node head = new Node(arr[0]);
+        Node prev = head;
+
+        for(int i=1; i<arr.length; i++){
+            Node temp = new Node(arr[i], null, prev);
+            prev.next = temp;
+            prev = temp;
+        }
+
+        return head;
+    }
+
+
     public int getSize(){
         return this.size;
     }
@@ -107,8 +133,18 @@ public class DoubleLL {
         System.out.println("null");
     }
 
+    static void printList(Node head){
+
+        while (head != null){
+            System.out.print(head.data + " <=> ");
+            head = head.next;
+        }
+        System.out.println("null");
+    }
+
     public static void main(String[] args) {
 
+        //Task : Basic Add & Delete Operation in Doubly Linked List.
         DoubleLL dll = new DoubleLL();
 
         dll.push_front(1);
@@ -127,6 +163,19 @@ public class DoubleLL {
         dll.print();
 
         System.out.println("Size of Doubly LL: " +  dll.getSize());
+
+        //Task : Converting an Array into Doubly Linked List.
+        int[] arr = {3,4,5,6,7};
+        System.out.print("Before Converting Array into Double LL Array is: { ");
+        for (int num : arr){
+            System.out.print(num + " ");
+        }
+        System.out.println("}");
+
+        System.out.print("After Converting Array into Doubly LL : ");
+        Node head = convertArrToDll(arr);
+        printList(head);
+
     }
 
 }
