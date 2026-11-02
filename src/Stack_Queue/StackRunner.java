@@ -1,8 +1,9 @@
 package Stack_Queue;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
-public class Stack {
+public class StackRunner {
 
     static class Node{
 
@@ -71,7 +72,6 @@ public class Stack {
          }
 
          public int pop(){
-
              if(isEmpty()){
                  return -1;
              }
@@ -85,10 +85,8 @@ public class Stack {
              if(isEmpty()){
                  return -1;
              }
-
              return list.get(list.size()-1);
          }
-
     }
 
     public static void main(String[] args) {
@@ -118,6 +116,21 @@ public class Stack {
             System.out.println(st.peek());
             st.pop();
         }
+        System.out.println();
 
+        System.out.println("Stack by using Java Utility Framework: ");
+
+        Stack<Integer> stk = new Stack();
+
+        stk.push(2);
+        stk.push(6);
+        stk.push(9);
+        stk.push(4);
+        stk.push(7);
+
+        while (!stk.isEmpty()){
+            System.out.println(stk.peek());
+             stk.pop();
+        }
     }
 }
