@@ -41,4 +41,29 @@ public class QueueRunner {
         rear--;
         return front;
     }
+
+    //Peek - O(N)
+    public int peek(){
+        if(isEmpty()){
+            System.out.println("Queue is Empty!");
+            return -1;
+        }
+
+        int peek = arr[0];
+        return peek;
+    }
+
+    public static void main(String[] args) {
+        QueueRunner q = new QueueRunner(5);
+
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        q.add(4);
+
+        while (!q.isEmpty()){
+            System.out.println(q.peek());
+            q.remove();
+        }
+    }
 }
