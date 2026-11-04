@@ -43,6 +43,10 @@ public class MajorityElement {
     }
 
     //Optimal Solution. TC - O(N) SC - O(1)
+    static int majorityEleInArr(int[] arr){
+
+        /* To be continue */
+    }
 
     public static void main(String[] args) {
 
