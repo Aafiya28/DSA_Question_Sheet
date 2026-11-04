@@ -15,6 +15,7 @@ public class QueueRunner {
         return rear == -1;
     }
 
+    // Array into Queue.
     //Enqueue - O(1).
     public void add(int data){
         if(rear == size-1){
@@ -66,4 +67,5 @@ public class QueueRunner {
             q.remove();
         }
     }
+
 }
