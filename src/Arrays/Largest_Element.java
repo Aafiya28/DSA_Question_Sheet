@@ -7,6 +7,11 @@ class Largest_Element {
     //Brute Force Solution
     static int largestEle(int[] arr){
 
+        // Amazon Standard: Explicit defensive check
+        if (arr == null || arr.length == 0) {
+            throw new IllegalArgumentException("Array cannot be null or empty.");
+        }
+
         //Sort an array
         Arrays.sort(arr);
 
@@ -16,6 +21,11 @@ class Largest_Element {
 
     //Optimal Solution
     static int largest(int[] arr){
+
+        // Amazon Standard: Explicit defensive check
+        if (arr == null || arr.length == 0) {
+            throw new IllegalArgumentException("Array cannot be null or empty.");
+        }
 
         int n = arr.length;
 
