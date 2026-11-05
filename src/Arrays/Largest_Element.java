@@ -4,25 +4,20 @@ import java.util.*;
 
 class Largest_Element {
 
-    //Brute Force Solution
+    //Brute Force Solution - TC - O(NlogN) * SC - O(N).
     static int largestEle(int[] arr){
 
-        // Amazon Standard: Explicit defensive check
         if (arr == null || arr.length == 0) {
             throw new IllegalArgumentException("Array cannot be null or empty.");
         }
 
-        //Sort an array
         Arrays.sort(arr);
-
-        //return last element of an array (array.length - 1);
         return arr[arr.length-1];
     }
 
-    //Optimal Solution
+    //Optimal Solution - TC - O(N) * SC - O(1).
     static int largest(int[] arr){
 
-        // Amazon Standard: Explicit defensive check
         if (arr == null || arr.length == 0) {
             throw new IllegalArgumentException("Array cannot be null or empty.");
         }
