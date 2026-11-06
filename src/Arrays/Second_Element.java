@@ -5,10 +5,7 @@ import java.util.Arrays;
 
 public class Second_Element {
 
-    /* Brute Force Solution - Second Smallest and Largest Element
-     * Time Complexity: O(N log N), for sorting the array.
-     * Space Complexity: O(1), as we are using a constant amount of space for variables.
-     */
+    /* Brute Force Solution - TC : O(N log N) * SC : O(1) */
     static void getSecondElement(int[] arr){
 
         int n = arr.length;
@@ -48,10 +45,7 @@ public class Second_Element {
         System.out.println("Second Smallest Element: " + second_smallest + ", " + "Second Largest Element: " + second_largest);
     }
 
-    /* Better Solution - Find Second Smallest and Second-Largest Element
-     * Time Complexity: O(2N), we do two linear traversals in our array.
-     * Space Complexity: O(1), as we are using a constant
-     */
+    /* Better Solution - Time Complexity: O(2N) * SC: O(1) */
     static void get2Smallest(int[] arr){
 
         int n = arr.length;
@@ -115,10 +109,7 @@ public class Second_Element {
     }
 
 
-    /* Optimal Solution - Find Second Smallest and Second-Largest Element
-     * Time Complexity: O(N), we do two linear traversals in our array.
-     * Space Complexity: O(1), as we are using a constant
-     */
+    /* Optimal Solution - TC: O(N) * SC: O(1)  Of 2nd Largest & 2nd Smallest Element */
     //Optimal Solution - Second-Largest Element
     static int secondLargest(int[] arr) {
         int n = arr.length;
