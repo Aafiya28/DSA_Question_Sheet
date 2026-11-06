@@ -4,7 +4,7 @@ import java.util.*;
 
 public class SecondLargest_Element {
 
-    /* Brute Force Solution -  Time Complexity: O(N log N) * Space Complexity: O(1) */
+    /* Brute Force Solution -  Time Complexity: O(N log N) * Space Complexity: O(N) */
     static void getSecondLargestBrute(int[] arr) {
         int n = arr.length;
         if (n < 2) {
