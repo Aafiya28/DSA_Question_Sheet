@@ -4,14 +4,14 @@ import java.util.*;
 
 public class MissingNum {
 
-    //Brute Force Solution
+    //Brute Force Solution - TC - O(N^2)
     static int misNum(int[] arr){
 
         int n = arr.length;
 
         for(int i=0; i<=n; i++){
             int flat = 0;
-            for(int j=0; j<n-1; j++){
+            for(int j=0; j<n; j++){
 
                 if(arr[j] == i){
                     flat = 1;
