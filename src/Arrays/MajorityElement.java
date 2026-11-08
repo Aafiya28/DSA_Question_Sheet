@@ -43,11 +43,24 @@ public class MajorityElement {
     }
 
     //Optimal Solution. TC - O(N) SC - O(1)
-    static int majorityEleInArr(int[] arr){
+    static int majorityElementOp(int[] nums) {
+        int candidate = 0;
+        int balance = 0;
 
-        /* To be continue */
+        for (int value : nums) {
+            if (balance == 0) {
+                candidate = value;
+            }
+
+            if (value == candidate) {
+                balance++;
+            } else {
+                balance--;
+            }
+        }
+
+        return candidate;
     }
-
     public static void main(String[] args) {
 
         int[] arr = {7, 0, 0, 1, 7, 7, 2, 7, 7};
@@ -59,5 +72,10 @@ public class MajorityElement {
         int majorityFrequencyEle = majorityElement(arr);
 
         System.out.println("Majority Frequency Element : " + majorityFrequencyEle);
+
+        int majorityEle = majorityElementOp(arr);
+
+        System.out.println("Majority Frequency Element : " + majorityEle);
+
     }
 }
