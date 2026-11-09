@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MinimumConsecutive {
 
-    static void minConnsecutive(int[] arr){
+    static void minConsecutive(int[] arr){
 
         int n=arr.length;
 
@@ -36,6 +36,6 @@ public class MinimumConsecutive {
             arr[i] = sc.nextInt();
         }
 
-        minConnsecutive(arr);
+        minConsecutive(arr);
     }
 }
