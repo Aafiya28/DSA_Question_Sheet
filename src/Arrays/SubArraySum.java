@@ -2,9 +2,8 @@ package Arrays;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
-public class SubarraySum {
+public class SubArraySum {
 
     static boolean subArrSum(int[] arr, int sum){
 
