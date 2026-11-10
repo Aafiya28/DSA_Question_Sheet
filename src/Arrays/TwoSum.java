@@ -21,7 +21,7 @@ public class TwoSum {
         return new int[] {-1, -1};
     }
 
-    //Optimal Approach - TC: O(N) * SC: O(1).
+    //Better Approach - TC: O(N) * SC: O(1).
     static int[] twoSum(int[] arr, int target){
 
         HashMap<Integer,Integer> map = new HashMap<>();
@@ -40,6 +40,28 @@ public class TwoSum {
         return new int[]{-1,-1};
     }
 
+    static int[] getTwo_Sum(int[] arr, int target){
+
+        int n = arr.length;
+        int left = 0;
+        int right = n-1;
+
+        while(left < right){
+
+            int sum = arr[left] + arr[right];
+
+            if(sum == target){
+                return new int[]{left, right};
+            }else if(sum < target){
+                left++;
+            }else{
+                right--;
+            }
+        }
+
+        return new int[] {-1, -1};
+    }
+
     public static void main(String[] args){
 
         int[] arr = {2,7,11,15};
@@ -51,10 +73,12 @@ public class TwoSum {
         System.out.println(ans[0] + " " + ans[1]);
 
 
-        System.out.println("Optimal Solution : ");
+        System.out.println("Better Solution : ");
         int[] result = twoSum(arr,target);
         System.out.println(result[0] + " " + result[1]);
 
-
+        System.out.println("Optimal Solution: ");
+        int[] getResult = getTwo_Sum(arr, target);
+        System.out.println(getResult[0] + " " + getResult[1]);
     }
 }
