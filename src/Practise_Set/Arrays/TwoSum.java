@@ -1,5 +1,6 @@
 package Practise_Set.Arrays;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class TwoSum {
@@ -24,7 +25,38 @@ public class TwoSum {
         return new int[] {-1, -1};
     }
 
-    //Optimal Approach : TC: O(N) * SC: O(1);
+    //Better Approach -
+    static int[] getTwo_Sum(int[] arr, int target){
+
+        if(arr == null || arr.length < 2){
+            return new int[] {-1, -1};
+        }
+
+        int n = arr.length;
+        int left = 0;
+        int right = n-1;
+
+        Arrays.sort(arr);
+        while (left < right){
+
+            int sum = arr[left] + arr[right];
+
+            if(sum == target){
+                return new int[] {left, right};
+            }else if(sum < target){
+                left++;
+            }else {
+                right--;
+            }
+        }
+
+
+        return new int[] {-1, -1};
+    }
+
+
+    //Optimal Approach - TC: O(N) * SC: O(1);
+    /* HashMap (Single Pass) Standard Two Sum (unsorted array, must return original indices).*/
     static int[] twoSum(int[] arr, int target){
 
         if(arr == null || arr.length < 2){
@@ -53,7 +85,7 @@ public class TwoSum {
         int[] arr = {2, 7, 8, 11, 24, 13};
         int target = 19;
 
-        int[] twoSumIndices = twoSum(arr, target);
+        int[] twoSumIndices = getTwo_Sum(arr, target);
 
         for (int num : twoSumIndices){
             System.out.print("Index : " + num + " ");
