@@ -2,6 +2,7 @@ package Arrays;
 
 public class MaximumSubArray {
 
+    //Brute-force Approach : TC: O(N) * SC: O(1);
     static int maxSubArray(int[] arr){
 
         int curr = arr[0];
