@@ -2,7 +2,7 @@ package Arrays;
 
 public class MaximumSubArray {
 
-    //Brute-force Approach - TC: O(N^3) * SC: O(1);
+    //Brute-force Approach - TC: O(N^3), SC: O(1);
     static int getMaxSubArrSum(int[] arr){
 
         if(arr == null || arr.length == 0){
@@ -25,7 +25,7 @@ public class MaximumSubArray {
         return maxSum;
     }
 
-    //Better Approach - TC: O(N^2) * SC: O(1);
+    //Better Approach - TC: O(N^2), SC: O(1);
     static int getMaxSubArray(int[] arr){
 
         if(arr == null || arr.length == 0){
@@ -46,7 +46,7 @@ public class MaximumSubArray {
         return maxSum;
     }
 
-    //Optimal Approach : TC: O(N) * SC: O(1);
+    //Optimal Approach : TC: O(N), SC: O(1);
     static int maxSubArray(int[] arr){
 
         if(arr == null || arr.length == 0){
