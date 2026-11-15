@@ -4,19 +4,43 @@ import java.util.Scanner;
 
 public class MaximumConsecutiveOnce {
 
-    static int findMaxCansecutiveOnce(int[] arr){
+    // Brute force Solution - TC: O(N^2), SC: O(1).
+    static int getMaxConsecutiveOnce(int[] arr){
+
+        int n = arr.length;
+        int maxLength = 0;
+
+        for(int i=0; i<n; i++){
+            if(arr[i] == 1){
+                int countLength = 0;
+                for(int j=i; j<n; j++){
+                    if(arr[j] == 1){
+                        countLength++;
+                    }else {
+                        break;
+                    }
+                }
+                maxLength = Math.max(maxLength, countLength);
+            }
+        }
+
+        return maxLength;
+    }
+
+    //Optimal Solution - TC: O(N), SC: O(1).
+    static int findMaxConsecutiveOnce(int[] arr){
 
         int n = arr.length;
 
-        int res = 0;
+        int count = 0;
         int max = 0;
 
         for(int i=0; i<n; i++){
             if(arr[i] == 1){
-                res++;
-                max = Math.max(res, max);
+                count++;
+                max = Math.max(count, max);
             }else {
-                res = 0;
+                count = 0;
             }
         }
 
@@ -25,20 +49,13 @@ public class MaximumConsecutiveOnce {
 
     public static void main(String[] args){
 
-        Scanner sc = new Scanner(System.in);
+        int[] arr = {1, 0, 1, 1, 1, 0, 1, 1};
 
-        System.out.print("Enter number of element in array: ");
-        int n = sc.nextInt();
-
-        int[] arr = new int[n];
-
-        System.out.print("Enter element in array: ");
-        for(int i=0; i<n; i++){
-            arr[i] = sc.nextInt();
-        }
-
-        int ans = findMaxCansecutiveOnce(arr);
+        int ans = findMaxConsecutiveOnce(arr);
 
         System.out.println("Maximum Consecutive of Once in this array is: " + ans);
+
+        int result = getMaxConsecutiveOnce(arr);
+        System.out.println("Maximum Consecutive of Once is : " + result);
     }
 }
