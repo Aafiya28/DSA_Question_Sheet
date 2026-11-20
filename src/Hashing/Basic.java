@@ -1,6 +1,7 @@
 package Hashing;
 
 import java.util.*;
+import java.util.HashMap;
 
 public class Basic {
 
@@ -50,6 +51,7 @@ public class Basic {
         /* HashMap Data Structure - Contains data into key-value pair & Its Un-Order */
         HashMap<String, Integer> map = new HashMap<>();
 
+
         //Insert
         map.put("India", 120);
         map.put("China", 159);
@@ -82,6 +84,11 @@ public class Basic {
         for(String key : keys){
             System.out.println(key + " : " + map.get(key));
         }
+
+        /* ##################################### */
+
+        /* HashTree - */
+
     }
 
 }
