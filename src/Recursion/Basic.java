@@ -49,8 +49,13 @@ public class Basic {
     }
 
     //Fibonacci Series
-    public static int fibonacciToN(int n){
+    public static int fibonacciSeries(int n){
 
+        if(n == 0 || n == 1){
+            return n;
+        }else {
+            return fibonacciSeries(n-1) + fibonacciSeries(n - 2);
+        }
     }
 
     public static void main(String[] args) {
@@ -61,5 +66,11 @@ public class Basic {
         Print1toN(n);
         sumOfN(1, 5, 0);
         System.out.println("Factorial : " + factorial(n));
+
+        int count = 5;
+        for (int i = 0; i < count; i++) {
+            System.out.print(fibonacciSeries(i) + " ");
+        }
+
     }
 }
