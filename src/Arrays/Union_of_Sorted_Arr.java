@@ -122,7 +122,7 @@ public class Union_of_Sorted_Arr {
 
     public static void main(String[] args) {
 
-        int[] arr1 = {1,2,3,4,5};
+        int[] arr1 = {1,2,3,3,4,5};
         int[] arr2= {2,2,3,4,6};
 
         List<Integer> result = new ArrayList<>(unionArray(arr1, arr2));
